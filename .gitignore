@@ -8,3 +8,6 @@ assets/.DS_Store
 
 # 项目信息文件（不需要同步）
 assets/projects_info/
+
+# 模板文件（个人使用，不需要同步）
+templates/
