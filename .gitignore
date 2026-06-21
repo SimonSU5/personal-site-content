@@ -1,0 +1,10 @@
+# Obsidian
+.obsidian/
+.claudian/
+
+# macOS
+.DS_Store
+assets/.DS_Store
+
+# 项目信息文件（不需要同步）
+assets/projects_info/
