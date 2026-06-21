@@ -2,7 +2,7 @@
 title: 文章标题（草稿）
 excerpt: 文章摘要
 category: thoughts
-tags: 标签1, 标签2
+tags:
 ---
 
 # 标题
