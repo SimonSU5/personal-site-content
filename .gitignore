@@ -11,3 +11,7 @@ assets/projects_info/
 
 # 模板文件（个人使用，不需要同步）
 templates/
+
+# 草稿文件（不需要同步）
+works/drafts/
+blogs/drafts/
