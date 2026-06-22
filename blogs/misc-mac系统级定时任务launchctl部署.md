@@ -1,11 +1,12 @@
 ---
 title: launchctl 故障排查和部署经验总结
 excerpt: 之前在日记中，我已经意识到一个稳定运行的人生系统对我来说的重要性，我打算使用每日日记的形式规划一整天。因此，我打算让我的mac每天定时给我生成一个模板。在此期间，我碰到了一些问题，特此记录
-category:
+category: misc
 tags:
+  - misc
 cover: assets/images/launchctl总结-封面.png
 date: 2026-06-22
-published: false
+published: true
 ---
 #### 一、问题背景
 在配置系统级定时任务时，遇到了一系列launchctl部署问题，从用户级权限错误到系统级服务权限限制，通过系统排查最终找到解决方案。
