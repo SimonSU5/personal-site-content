@@ -3,7 +3,7 @@ title: launchctl 故障排查和部署经验总结
 excerpt: 之前在日记中，我已经意识到一个稳定运行的人生系统对我来说的重要性，我打算使用每日日记的形式规划一整天。因此，我打算让我的mac每天定时给我生成一个模板。在此期间，我碰到了一些问题，特此记录
 category:
 tags:
-cover: assets/covers/image.jpg
+cover: assets/images/launchctl总结-封面.png
 date: 2026-06-22
 published: false
 ---
