@@ -149,3 +149,31 @@ log stream --predicate 'subsystem == "com.apple.launchd"'
 6. **重视权限分析**: 当服务无法访问文件时，优先检查文件系统权限链
 
 这次故障排查花了两天时间，最大的收获是认识到**交互式环境测试的局限性**和**文件系统权限对系统服务的严格限制**。系统化的方法论让最终解决方案清晰可靠。
+
+# 补充：
+
+# sudo -i 与 sudo -s 完整区别
+
+## 1. 核心命令作用
+
+### `sudo -s`
+
+以**当前用户 Shell**切换到 root 身份，**不加载 root 完整登录环境**
+
+1. 执行 root 权限的交互式 shell
+2. Shell 程序沿用你登录用户的（`$SHELL`，比如 zsh/bash）
+3. **环境变量大部分保留当前用户**：PATH、HOME、用户自定义变量、代理等不变
+4. 当前工作目录**不切换**，还是你执行命令时的目录
+5. 不会读取 `/root/.profile`、`/root/.bash_profile` 登录脚本
+
+### `sudo -i`
+
+模拟**完整 root 登录**，完全切换成 root 用户环境
+
+1. 启动 root 专属登录 shell
+2. 自动切换工作目录到 `/root`
+3. 重置所有环境变量为 root 默认登录环境：`HOME=/root`、PATH 变为 root 路径、清空普通用户自定义变量
+4. 完整加载 root 登录配置：`/root/.bashrc`、`/root/.profile`、`/etc/profile`
+5. 等同于直接用 `su - root`
+
+所以我之前测试的时候用的是sudo -s进入的root，没有完整加载root权限，可以访问到user下的文件。如果用sudo -i测试，就会发现问题。
