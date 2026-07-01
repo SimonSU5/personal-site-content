@@ -23,27 +23,12 @@ published: false
 
 ## 2. Vercel 一对一绑定配置
 
-1. 进入项目 → Settings → Environments
+- **Production 环境**：绑定分支 = `main`
+    只要代码合并到 main，自动发布正式网站；使用生产环境变量。
+- Preview 自定义 Dev 环境**：新增自定义环境，绑定分支 = `dev`
+    只要 push / 合并到 dev 分支，自动部署 dev 站点；只读取 Dev 环境变量。
     
-    - **Production 环境**：绑定分支 = `main`
-        
-        只要代码合并到 main，自动发布正式网站；使用生产环境变量。
-    - **Preview 自定义 Dev 环境**：新增自定义环境，绑定分支 = `dev`
-        
-        只要 push / 合并到 dev 分支，自动部署 dev 站点；只读取 Dev 环境变量。
-    
-2. PR 临时预览：所有 feature 分支提交 PR，自动生成临时 Preview 预览链接，用来 UI 评审（对应你之前聊的 Preview 版本）。
-
-### 环境变量严格隔离（绝对不能混用）
-
-- 变量作用域分开勾选：
-    
-    - Production 变量：仅作用于 main 分支
-    - Dev 变量：仅作用于 dev 分支
-    - PR 预览变量：给 feature 临时分支使用
-    
-
-> dev 环境永远不能填写生产数据库密钥。
+1. PR 临时预览：所有 feature 分支提交 PR，自动生成临时 Preview 预览链接，用来 UI 评审（对应你之前聊的 Preview 版本）。
 
 ---
 
