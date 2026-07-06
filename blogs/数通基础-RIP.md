@@ -100,22 +100,15 @@ graph TB
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'secondaryColor': '#e6f3ff', 'tertiaryColor': '#fff'}}}%%
-graph TB
-    subgraph Loop_Prevention["RIP环路预防机制"]
-        R1["Router1"]
-        R2["Router2"]
-        R3["Router3"]
-        Net["Network<br/>10.0.0.0/24"]
+flowchart TB
+    R1[Router1] -->|第一步: 水平分割<br/>不向入接口发送| R2[Router2]
+    R2 -->|第二步: 毒性逆转<br/>标记hop不可达| R1
+    R2 -->|第三步: 路由毒化<br/>标记hop为16| R3[Router3]
+    R3 -->|第四步: 抑制计时器<br/>180秒内不信任更新| R2
 
-        R1 -->|第一步: 水平分割<br/>不向入接口发送| R2
-        R2 -->|第二步: 毒性逆转<br/>标记hop=16(不可达)| R1
-        R2 -->|第三步: 路由毒化<br/>标记hop=16| R3
-        R3 -->|第四步: 抑制计时器<br/>180s内不信任更新| R2
-
-        R1 -.->|直连网络失效| Net
-        R2 -.->|R1通告hop=16| Net
-        R3 -.->|学习到的路由<br/>设置抑制计时器| Net
-    end
+    R1 -.->|直连网络失效| Net[Network<br/>10.0.0.0/24]
+    R2 -.->|通告hop为16| Net
+    R3 -.->|设置抑制计时器| Net
 
     style R1 fill:#FF6B6B,stroke:#333,stroke-width:2px
     style R2 fill:#FF6B6B,stroke:#333,stroke-width:2px
