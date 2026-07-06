@@ -5,6 +5,7 @@ category: 数通
 tags:
   - 数通
   - 路由协议
+  - IGP
 cover: assets/covers/image.jpg
 date: 2026-07-06
 published: false
@@ -12,6 +13,8 @@ published: false
 
 ## 链路状态路由协议——LSA泛洪
 
-OSPF通过链路状态（拓扑信息+路由信息）通告路由情况。
-运行OSPF的路由器会先建立邻居关系，之后彼此开始交互LSA（链路状态通告）
-收到的LSA将放入LSDB中。
+1. OSPF通过链路状态（拓扑信息+路由信息）通告路由情况。
+2. 运行OSPF的路由器会先建立邻居关系，之后彼此开始交互LSA（链路状态通告）
+3. 收到的LSA将放入LSDB中。
+4. 每一台路由器根据LSDB，通过SPF最短路径优先算法，计算出一个以自己为根的无环树。
+5. 根据最短路径树，生成路由表项，加载到路由表中。
