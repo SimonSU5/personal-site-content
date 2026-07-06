@@ -4,6 +4,7 @@ excerpt: RIP路由协议学习笔记
 category: 数通
 tags:
   - 数通
+  - 路由协议
 cover: assets/covers/image.jpg
 date: 2026-07-06
 published: false
