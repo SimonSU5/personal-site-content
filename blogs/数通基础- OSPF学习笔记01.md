@@ -49,3 +49,10 @@ SPF算法：
 	- 总cost为路径上的所有cost之和
 	- cost小于1时按照1计算
 	- 常见缺省cost： serial口1.544Mbit/s，cost=64；百兆千兆口cost=1，同时存在时负载分担。
+
+### OSPF三大表项
+- OSPF邻居表
+	- 最先建立，通过hello报文建立
+	- 表示路由器之间的邻居状态，dis ospf ne
+- LSDB
+- OSPF路由表
