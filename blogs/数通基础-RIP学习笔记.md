@@ -43,6 +43,8 @@ graph TB
 
 ### RIP路由信息交换
 
+RIP基于**路由表通告**来自动泛洪路由信息。
+
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'secondaryColor': '#e6f3ff', 'tertiaryColor': '#fff'}}}%%
 flowchart LR
