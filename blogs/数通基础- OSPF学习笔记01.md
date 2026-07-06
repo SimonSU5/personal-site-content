@@ -30,7 +30,7 @@ SPF算法：
 ### router-ID 路由器ID
 - 本AS唯一，代表一个运行OSPF的设备
 - 32位无符号整数——通常用IP地址代替
-	- 手动配置
+	- 手动配置router-ID
 	- 最大的loopback
 	- 最大的物理IP
 
@@ -44,7 +44,8 @@ SPF算法：
 ### cost 度量值
 - 开销作为“距离”
 - 大于0的整数
-	- cost = 100Mbit/s/接口带宽
-	- 总cost为路径上的所有cost只和
+	- 手动配置cost
+	- 缺省cost = 100Mbit/s/接口带宽
+	- 总cost为路径上的所有cost之和
 	- cost小于1时按照1计算
-	- 常见cost： serial口1.544Mbit/s，cost=64；百兆千兆口co
+	- 常见缺省cost： serial口1.544Mbit/s，cost=64；百兆千兆口cost=1，同时存在时负载分担。
