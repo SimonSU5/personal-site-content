@@ -47,4 +47,4 @@ SPF算法：
 	- cost = 100Mbit/s/接口带宽
 	- 总cost为路径上的所有cost只和
 	- cost小于1时按照1计算
-	- 
+	- 常见cost： serial口1.544Mbit/s，cost=64；百兆千兆口co
