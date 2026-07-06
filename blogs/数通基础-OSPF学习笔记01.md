@@ -53,6 +53,8 @@ SPF算法：
 ### OSPF三大表项
 - OSPF邻居表
 	- 最先建立，通过hello报文建立
-	- 表示路由器之间的邻居状态，dis ospf nei b er h
+	- 表示路由器之间的邻居状态，dis ospf peer
+		- router ID：交换机ID
+		- address：物理IP
 - LSDB
 - OSPF路由表
