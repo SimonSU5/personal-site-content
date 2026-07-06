@@ -14,8 +14,9 @@ published: false
 ### 基础网络拓扑
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'secondaryColor': '#e6f3ff', 'tertiaryColor': '#fff'}}}%%
 graph TB
-    subgraph Network["网络拓扑"]
+    subgraph Network["网络拓扑结构"]
         PC1(("PC1<br/>192.168.1.10"))
         R1["Router1<br/>192.168.1.1"]
         PC2(("PC2<br/>192.168.2.10"))
@@ -31,57 +32,74 @@ graph TB
     R1 ===|"172.16.1.0/24<br/>hop:1"| R2
     R2 ===|"172.16.2.0/24<br/>hop:1"| R3
 
-    style PC1 fill:#90EE90
-    style PC2 fill:#90EE90
-    style PC3 fill:#90EE90
-    style R1 fill:#87CEEB
-    style R2 fill:#87CEEB
-    style R3 fill:#87CEEB
+    style PC1 fill:#90EE90,stroke:#333,stroke-width:2px
+    style PC2 fill:#90EE90,stroke:#333,stroke-width:2px
+    style PC3 fill:#90EE90,stroke:#333,stroke-width:2px
+    style R1 fill:#87CEEB,stroke:#333,stroke-width:2px
+    style R2 fill:#87CEEB,stroke:#333,stroke-width:2px
+    style R3 fill:#87CEEB,stroke:#333,stroke-width:2px
 ```
 
 ### RIP路由信息交换
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'secondaryColor': '#e6f3ff', 'tertiaryColor': '#fff'}}}%%
+flowchart LR
+    Start([开始]) --> Step1[第一步: 初始状态<br/>路由器启动，只有直连网络]
+    Step1 --> Step2[第二步: RIP广播<br/>每30秒向邻居广播路由表<br/>使用UDP 520端口]
+    Step2 --> Step3[第三步: 路由计算<br/>接收更新，计算跳数<br/>最大跳数为15]
+    Step3 --> Step4[第四步: 收敛完成<br/>网络稳定，路由表完整]
+    Step4 --> End([完成])
+
+    style Start fill:#90EE90,stroke:#333,stroke-width:2px
+    style End fill:#90EE90,stroke:#333,stroke-width:2px
+    style Step1 fill:#FFE4B5,stroke:#333,stroke-width:2px
+    style Step2 fill:#98FB98,stroke:#333,stroke-width:2px
+    style Step3 fill:#87CEEB,stroke:#333,stroke-width:2px
+    style Step4 fill:#DDA0DD,stroke:#333,stroke-width:2px
+```
+
+### 路由表变化详解
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'secondaryColor': '#e6f3ff', 'tertiaryColor': '#fff'}}}%%
 graph TB
-    subgraph RIP_Update["RIP路由更新流程"]
-        direction LR
-
-        subgraph Phase1["阶段1: 初始状态"]
-            R1_Table["Router1路由表:<br/>• 192.168.1.0/24 (直连, hop:0)<br/>• 172.16.1.0/24 (直连, hop:0)"]
-            R2_Table["Router2路由表:<br/>• 192.168.2.0/24 (直连, hop:0)<br/>• 172.16.1.0/24 (直连, hop:0)<br/>• 172.16.2.0/24 (直连, hop:0)"]
-            R3_Table["Router3路由表:<br/>• 192.168.3.0/24 (直连, hop:0)<br/>• 172.16.2.0/24 (直连, hop:0)"]
-        end
-
-        subgraph Phase2["阶段2: RIP广播 (每30秒)"]
-            Update1["Router1 → Router2<br/>UDP:520<br/>包含: 192.168.1.0/24"]
-            Update2["Router2 → Router1<br/>UDP:520<br/>包含: 192.168.2.0/24, 172.16.2.0/24"]
-            Update3["Router2 → Router3<br/>UDP:520<br/>包含: 192.168.2.0/24, 172.16.1.0/24"]
-        end
-
-        subgraph Phase3["阶段3: 路由学习完成"]
-            Final_R1["Router1路由表:<br/>• 192.168.1.0/24 (直连, 0)<br/>• 172.16.1.0/24 (直连, 0)<br/>• 192.168.2.0/24 (R2, 1)<br/>• 172.16.2.0/24 (R2, 1)<br/>• 192.168.3.0/24 (R2, 2)"]
-            Final_R2["Router2路由表:<br/>• 192.168.2.0/24 (直连, 0)<br/>• 172.16.1.0/24 (直连, 0)<br/>• 172.16.2.0/24 (直连, 0)<br/>• 192.168.1.0/24 (R1, 1)<br/>• 192.168.3.0/24 (R3, 1)"]
-            Final_R3["Router3路由表:<br/>• 192.168.3.0/24 (直连, 0)<br/>• 172.16.2.0/24 (直连, 0)<br/>• 192.168.2.0/24 (R2, 1)<br/>• 172.16.1.0/24 (R2, 1)<br/>• 192.168.1.0/24 (R2, 2)"]
-        end
+    subgraph Initial["第一步: 初始状态"]
+        I_R1["Router1路由表:<br/>• 192.168.1.0/24 (直连, hop:0)<br/>• 172.16.1.0/24 (直连, hop:0)"]
+        I_R2["Router2路由表:<br/>• 192.168.2.0/24 (直连, hop:0)<br/>• 172.16.1.0/24 (直连, hop:0)<br/>• 172.16.2.0/24 (直连, hop:0)"]
+        I_R3["Router3路由表:<br/>• 192.168.3.0/24 (直连, hop:0)<br/>• 172.16.2.0/24 (直连, hop:0)"]
     end
 
-    Phase1 --> Phase2
-    Phase2 --> Phase3
+    subgraph Update["第二步: RIP广播 (每30秒)"]
+        U1["Router1 → Router2<br/>UDP:520<br/>包含: 192.168.1.0/24"]
+        U2["Router2 → Router1<br/>UDP:520<br/>包含: 192.168.2.0/24, 172.16.2.0/24"]
+        U3["Router2 → Router3<br/>UDP:520<br/>包含: 192.168.2.0/24, 172.16.1.0/24"]
+    end
 
-    style R1_Table fill:#FFE4B5
-    style R2_Table fill:#FFE4B5
-    style R3_Table fill:#FFE4B5
-    style Update1 fill:#98FB98
-    style Update2 fill:#98FB98
-    style Update3 fill:#98FB98
-    style Final_R1 fill:#DDA0DD
-    style Final_R2 fill:#DDA0DD
-    style Final_R3 fill:#DDA0DD
+    subgraph Complete["第三步: 路由学习完成"]
+        C_R1["Router1路由表:<br/>• 192.168.1.0/24 (直连, 0)<br/>• 172.16.1.0/24 (直连, 0)<br/>• 192.168.2.0/24 (R2, 1)<br/>• 172.16.2.0/24 (R2, 1)<br/>• 192.168.3.0/24 (R2, 2)"]
+        C_R2["Router2路由表:<br/>• 192.168.2.0/24 (直连, 0)<br/>• 172.16.1.0/24 (直连, 0)<br/>• 172.16.2.0/24 (直连, 0)<br/>• 192.168.1.0/24 (R1, 1)<br/>• 192.168.3.0/24 (R3, 1)"]
+        C_R3["Router3路由表:<br/>• 192.168.3.0/24 (直连, 0)<br/>• 172.16.2.0/24 (直连, 0)<br/>• 192.168.2.0/24 (R2, 1)<br/>• 172.16.1.0/24 (R2, 1)<br/>• 192.168.1.0/24 (R2, 2)"]
+    end
+
+    Initial --> Update
+    Update --> Complete
+
+    style I_R1 fill:#FFE4B5,stroke:#333
+    style I_R2 fill:#FFE4B5,stroke:#333
+    style I_R3 fill:#FFE4B5,stroke:#333
+    style U1 fill:#98FB98,stroke:#333
+    style U2 fill:#98FB98,stroke:#333
+    style U3 fill:#98FB98,stroke:#333
+    style C_R1 fill:#DDA0DD,stroke:#333
+    style C_R2 fill:#DDA0DD,stroke:#333
+    style C_R3 fill:#DDA0DD,stroke:#333
 ```
 
 ### RIP防环机制
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'secondaryColor': '#e6f3ff', 'tertiaryColor': '#fff'}}}%%
 graph TB
     subgraph Loop_Prevention["RIP环路预防机制"]
         R1["Router1"]
@@ -89,20 +107,20 @@ graph TB
         R3["Router3"]
         Net["Network<br/>10.0.0.0/24"]
 
-        R1 -->|"水平分割<br/>不向入接口发送"| R2
-        R2 -->|"毒性逆转<br/>标记hop=16(不可达)"| R1
-        R2 -->|"路由毒化<br/>标记hop=16"| R3
-        R3 -->|"抑制计时器<br/>180s内不信任更新"| R2
+        R1 -->|第一步: 水平分割<br/>不向入接口发送| R2
+        R2 -->|第二步: 毒性逆转<br/>标记hop=16(不可达)| R1
+        R2 -->|第三步: 路由毒化<br/>标记hop=16| R3
+        R3 -->|第四步: 抑制计时器<br/>180s内不信任更新| R2
 
-        R1 -.->|"直连网络失效"| Net
-        R2 -.->|"R1通告hop=16"| Net
-        R3 -.->|"学习到的路由<br/>设置抑制计时器"| Net
+        R1 -.->|直连网络失效| Net
+        R2 -.->|R1通告hop=16| Net
+        R3 -.->|学习到的路由<br/>设置抑制计时器| Net
     end
 
-    style R1 fill:#FF6B6B
-    style R2 fill:#FF6B6B
-    style R3 fill:#FF6B6B
-    style Net fill:#FFD93D
+    style R1 fill:#FF6B6B,stroke:#333,stroke-width:2px
+    style R2 fill:#FF6B6B,stroke:#333,stroke-width:2px
+    style R3 fill:#FF6B6B,stroke:#333,stroke-width:2px
+    style Net fill:#FFD93D,stroke:#333,stroke-width:2px
 ```
 
 ## RIP协议核心概念
