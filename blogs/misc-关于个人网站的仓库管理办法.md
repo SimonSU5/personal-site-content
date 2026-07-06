@@ -90,6 +90,8 @@ git push origin feature/xxx
 
 ---
 
+
+
 # 三、如何彻底规避你之前遇到的基线冲突（A 组合并 dev，B 分支基线落后）
 
 ## 强制两条铁律（GitHub 配置强制锁死）
@@ -123,7 +125,83 @@ git push --force-with-lease
 
 `feature分支` → PR → `dev（Dev环境自动部署）` → PR → `main（Production自动部署）`
 
----
+### 3. B 组融合 A 组已经合并进 dev 的代码
+
+B 组和 A 组**异步并行开发**，B 的 `feature/b-function` 基线停留在 A 合并前的旧 dev，此时 B 不需要重写代码，只需要两条命令把 A 的改动融合进自己分支：
+
+### 标准安全操作（推荐 rebase，主干历史干净）
+
+1. 同步远端，拿到 A 刚合并到 dev 的最新代码
+    
+    bash
+    
+    运行
+    
+    ```
+    git fetch origin
+    ```
+    
+2. 将自己所有开发改动，**重新叠加在最新的 origin/dev 之上**
+    
+    bash
+    
+    运行
+    
+    ```
+    git rebase origin/dev
+    ```
+    
+
+- 遇到冲突：**手动修改冲突文件，执行 `git add . && git rebase --continue` 继续（冲突完成后，使用git add . 保存已经执行的所有文件的修改，也可以用git add 文件名 应用单个文件的改动，之后继续rebase）**
+- 全程不会丢失 B 已经写好的代码，只是把 A 新增逻辑插在自己代码前面
+
+3. 冲突解决完毕，推送更新远端分支，刷新 PR
+    
+    bash
+    
+    运行
+    
+    ```
+    git push --force-with-lease origin feature/b-function
+    ```
+    
+
+### 备选方案（merge，历史记录更杂乱，不推荐长期团队）
+
+bash
+
+运行
+
+```
+git fetch origin
+git merge origin/dev
+```
+
+直接把最新 dev 合并进当前分支，同样不会丢失 B 的代码，但会多出大量交叉合并提交。
+
+## 四、关键结论：不需要重新开发
+
+B 组已经写好的代码全部保留，`rebase/merge` 只是**对齐基线、合并差异代码**，不会覆盖、删除自己写的业务逻辑；
+
+只需要处理 A、B 修改同一文件产生的代码冲突，其余代码完全复用。
+
+## 五、完整流转时序图
+
+1. 初始状态：`dev` = V1
+2. A、B 分别拉取 V1，创建各自 feature 分支并行开发
+3. A 完成 → push feature 分支 → PR 合并进 dev → `dev` 更新为 V1+A 代码（V2）
+4. B 执行 `fetch + rebase origin/dev`
+    
+    - 本地自动加载 V2 版本 dev
+    - 将 B 所有代码重放至 V2 之上，解决冲突
+    
+5. B 更新自己 PR，评审通过后合并进 dev → `dev` 更新为 V2+B 代码（V3）
+
+## 六、补充避坑规则
+
+1. 禁止直接 push 代码到 `dev`，所有功能必须走 feature 分支 + PR；
+2. GitHub 开启保护规则：**分支必须和主干同步才能合并 PR**，B 如果不执行 rebase 对齐 dev，合并按钮会直接置灰；
+3. rebase 后推送必须用 `--force-with-lease`，不要裸 `--force`，避免覆盖他人分支。
 
 # 四、三种部署触发逻辑（自动区分环境，不用手动输命令）
 
