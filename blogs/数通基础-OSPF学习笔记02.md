@@ -11,4 +11,3 @@ cover: assets/covers/image.jpg
 date: 2026-07-06
 published: false
 ---
-![[Pasted image 20260708195548.png]]
