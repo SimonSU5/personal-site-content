@@ -19,8 +19,4 @@ published: false
 - router-id实际选举规则（首次配置时不按照笔记01中的选举规则）：
 	- 哪个接口的IP先配置，则选用哪个的（不一定时loopback地址）
 	- 手动配置完后，要回到user view下reset ospf process让手动配置生效
-
-![[Pasted image 20260708203744.png]]
-![[Pasted image 20260708203915.png]]
-
-- network 命令就是让接口在network后面的地址内的所有端口使能ospf，上面0/0/0和loopback地址在通告的两个地址段内，因此
+	- 
