@@ -30,4 +30,3 @@ published: false
 - 观察ospf运行状态命令
 	- dis ospf peer [br] —— 查看OSPF邻居信息
 	- dis ospf interface —— 查看OSPF运行接口
-![[Pasted image 20260709114724.png]]
