@@ -24,3 +24,4 @@ published: false
 ![[Pasted image 20260708203915.png]]
 
 - network 命令就是让接口在network后面的地址内的所有端口使能ospf，上面0/0/0和loopback地址在通告的两个地址段内，因此这两个端口使能ospf。
+- 也可以在接口中ospf enable，等效于ospf-area-0视图下的```network 接口地址``` 。
