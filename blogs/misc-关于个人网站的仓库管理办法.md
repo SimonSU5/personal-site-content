@@ -100,7 +100,7 @@ git push origin feature/xxx
 
 Branch Protection Rule 勾选：
 
-✅ Require branches to be up to date before merging
+	✅ Require branches to be up to date before merging
 
 含义：如果你的 feature 分支代码落后 dev 主干，合并按钮直接灰色，**不更新基线就无法合并 PR**，从根源杜绝后继冲突。
 
