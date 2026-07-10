@@ -30,4 +30,11 @@ published: false
 - 观察ospf运行状态命令
 	- dis ospf peer [br] —— 查看OSPF邻居信息
 	- dis ospf interface —— 查看OSPF运行接口
+	- dead timer —— hello报文保活时间
 ![[Pasted image 20260709114724.png]]
+
+- 观察OSPF lsdb
+![[Pasted image 20260709115544.png]]
+
+- 观察OSPF路由表
+![[Pasted image 20260709115556.png]]

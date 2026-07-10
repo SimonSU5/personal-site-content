@@ -1,6 +1,14 @@
 # Obsidian
 .obsidian/
 .claudian/
+.claude/
+
+# Git 目录（被 Syncthing 管理）
+.git/
+
+# Syncthing 冲突文件
+*.sync-conflict*
+conflict-files-obsidian-git.md
 
 # macOS
 .DS_Store
