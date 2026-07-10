@@ -17,11 +17,14 @@ published: false
 - 各种LSA拥有相同报文头部。
 	- IP header | OSPF header | LSU payload
 		- LSU payload = LSA header + payload
-			- LS age：LSA生存时间（秒），每1800秒泛洪一次LSA
-			- **LS type：LSA类型**
-			- **link state id：不同类型的LSA对此字段定义不一样**
-			- **advertising router：产生该LSA的路由器router id**
-			- LS seq num：LSA每次有新实例产生时，序列号就会增加（就是一个版本号，有更新后，以大seq为准）
+			- LSA header
+				- LS age：LSA生存时间（秒），每1800秒泛洪一次LSA
+				- **LS type：LSA类型**
+				- **link state id：不同类型的LSA对此字段定义不一样**
+				- **advertising router：产生该LSA的路由器router id**
+				- LS seq num：LSA每次有新实例产生时，序列号就会增加（就是一个版本号，有更新后，以大seq为准）
+			- payload
+				- 每种类别都不同
 ## 常见LSA的类型
 
 | 类型    | 名称                           | 描述                                                                                                                        |
@@ -32,4 +35,14 @@ published: false
 | 4     | ASBR汇总LSA（ASBR Summary LSA）  | 由ABR产生，描述到ASBR的路由，通告给除ASBR所在区域的其他相关区域。                                                                                    |
 | 5     | AS外部LSA（AS External LSA）     | 由ASBR产生，用于描述到达OSPF域外的路由                                                                                                   |
 | 7（不学） | 非完全末梢区域LSA（NSSA LSA）         | 由ASBR产生，用于描述到达OSPF域外的路由。NSSA LSA与AS外部LSA功能类似，但是泛洪范围不同。NSSA LSA只能在始发的NSSA内泛洪，并且不能直接进入Area0。NSSA的ABR会将7类LSA转换成5类LSA注入到Area0 |
+1. 1类LSA——router LSA（TransNet网络，以太网广播型网络）
+	1. LSA header
+		- LS type： router
+		- link state ID：本机router ID
+		- advertising router：产生该LSA的路由器router id（本机router ID）
+	- payload（广播型，只有拓扑信息，没有路由信息）
+		- link ID： DR接口IP地址
+		- data：OSPF出接口IP地址
+		- link type：TransNet
+		- metric：1
 
