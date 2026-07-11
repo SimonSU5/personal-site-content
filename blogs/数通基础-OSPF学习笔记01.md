@@ -10,7 +10,6 @@ cover: assets/covers/image.jpg
 date: 2026-07-06
 published: false
 ---
-
 ## 链路状态路由协议——LSA泛洪
 
 1. OSPF通过链路状态（拓扑信息+路由信息）通告路由情况。

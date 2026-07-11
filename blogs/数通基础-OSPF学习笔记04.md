@@ -35,14 +35,30 @@ published: false
 | 4     | ASBR汇总LSA（ASBR Summary LSA）  | 由ABR产生，描述到ASBR的路由，通告给除ASBR所在区域的其他相关区域。                                                                                    |
 | 5     | AS外部LSA（AS External LSA）     | 由ASBR产生，用于描述到达OSPF域外的路由                                                                                                   |
 | 7（不学） | 非完全末梢区域LSA（NSSA LSA）         | 由ASBR产生，用于描述到达OSPF域外的路由。NSSA LSA与AS外部LSA功能类似，但是泛洪范围不同。NSSA LSA只能在始发的NSSA内泛洪，并且不能直接进入Area0。NSSA的ABR会将7类LSA转换成5类LSA注入到Area0 |
-1. 1类LSA——router LSA（TransNet网络，以太网广播型网络）
-	1. LSA header
-		- LS type： router
-		- link state ID：本机router ID
-		- advertising router：产生该LSA的路由器router id（本机router ID）
-	- payload（广播型，只有拓扑信息，没有路由信息）
-		- link ID： DR接口IP地址
-		- data：OSPF出接口IP地址
-		- link type：TransNet
-		- metric：1
 
+**查看路由器获得的所有LSA（自己产生的所有LSA）（分类查询）：** dis ospf lsdb router|network|summery|asbr|ase (self-originate)
+
+1. 1类LSA——router LSA（TransNet网络等，以太网广播型网络）
+	- 只在区域内部传递
+	- 包含链路类型：P2P，TransNet，StubNet，Vlink
+	1. 包内容
+		1. LSA header
+			1. LS type： router
+			2. link state ID：本机router ID
+			3. advertising router：产生该LSA的路由器router id（本机router ID）
+		2. payload（广播型，只有拓扑信息，没有路由信息）
+			1. link ID： DR接口IP地址
+			2. data：OSPF出接口IP地址
+			3. link type：TransNet
+			4. metric：1
+	2. 
+2. 2类LSA——network LSA（TransNet网络，DR生成）
+	- 由DR产生，描述本网段的链路状态，在所属的区域内传播
+	1. LSA header
+		1. LS type： network
+		2. link state ID：DR接口IP地址
+		3. advertising router：产生该LSA的路由器router id（本机router ID）
+	2. payload
+		1. network mask：MA网络的子网掩码
+		2. attached router：连接到该MA网络的所有路由器（包括DR）router id。
+3. 
