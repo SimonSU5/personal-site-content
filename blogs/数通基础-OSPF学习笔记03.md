@@ -6,7 +6,7 @@ tags:
   - 路由协议
   - IGP
   - 数通
-cover: assets/covers/image.jpg
+cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-09
 published: false
 ---
