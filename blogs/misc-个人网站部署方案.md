@@ -1,6 +1,6 @@
 ---
 title: 个人网站部署方案
-excerpt: 我原先使用vercel部署我的个人网站，和github关联，静态无后端，部署容易。但是我最近给我的个人网站添加了一个后台管理功能，vercel不能做对象存储，不支持写入，而且国内访问相当慢（套cf代理估计也不能加速）。因此购入了一个阿里云的oss，重新部署了我的个人网站。这篇博客记录一下过程
+excerpt: 我原先使用vercel部署我的个人网站，和github关联，静态无后端，部署容易。但是我最近给我的个人网站添加了一个后台管理功能，vercel不能做对象存储，不支持写入，而且国内访问相当慢（套cf代理估计也不能加速）。因此打算购入一个阿里云的ecs+oss+cdn，重新部署了我的个人网站。这篇博客记录一下部署方案
 category: misc
 tags:
   - OSS
@@ -8,7 +8,7 @@ tags:
   - CDN
   - git
   - GitHub-action
-cover: assets/covers/image.jpg
+cover: assets/covers/个人网站部署方案-封面.png
 date: 2026-07-04
 published: false
 ---
