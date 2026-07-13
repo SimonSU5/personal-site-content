@@ -1,11 +1,12 @@
 ---
 title: OSPF学习笔记02——实验
 excerpt: OSPF学习笔记
-category: 数通
+category: 学习笔记
 tags:
   - 数通
   - 路由协议
   - IGP
+  - 学习笔记
 cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-06
 published: false

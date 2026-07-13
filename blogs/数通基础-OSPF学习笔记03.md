@@ -1,11 +1,12 @@
 ---
 title: OSPF学习笔记03——协商和选举过程
 excerpt: OSPF学习笔记03——协商和选举过程
-category: 数通
+category: 学习笔记
 tags:
   - 路由协议
   - IGP
   - 数通
+  - 学习笔记
 cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-09
 published: false
