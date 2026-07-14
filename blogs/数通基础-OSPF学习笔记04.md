@@ -40,6 +40,7 @@ published: false
 
 1. 1类LSA——router LSA（TransNet网络等，以太网广播型网络）
 	- 只在区域内部传递
+	- 每台OSPF路由器都会产生，他描述了直连口的信息
 	- 包含链路类型：P2P，TransNet，StubNet，Vlink
 	1. 包内容
 		1. LSA header
@@ -48,10 +49,13 @@ published: false
 			3. advertising router：产生该LSA的路由器router id（本机router ID）
 		2. payload（广播型，只有拓扑信息，没有路由信息）
 			1. link ID： DR接口IP地址
-			2. data：OSPF出接口IP地址
+			2. link data：OSPF出接口IP地址
 			3. link type：TransNet
 			4. metric：1
-	2. 
+			5. V（virtual link）： 若产生此LSA的路由器为虚链接的端点，则置位
+			6. E（external）： 若产生此LSA的路由器为ASBR，则置位
+			7. B（border）： 若产生次LSA的路由器为ABR，则置位
+			8. links：link数量
 2. 2类LSA——network LSA（TransNet网络，DR生成）
 	- 由DR产生，描述本网段的链路状态，在所属的区域内传播
 	1. LSA header
