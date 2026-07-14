@@ -82,6 +82,6 @@ published: false
 		1. network mask：MA网络的子网掩码
 		2. attached router：连接到该MA网络的所有路由器（包括DR）router id。
 3. 3类LSA——network summery LSA
-	- 
+	- 3类LSA主要是解决单区域内
 	1. 单区域存在的问题
 	2. 
