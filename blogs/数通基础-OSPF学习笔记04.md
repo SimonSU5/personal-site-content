@@ -41,7 +41,7 @@ published: false
 
 1. 1类LSA——router LSA（TransNet网络等，以太网广播型网络）
 	- 只在区域内部传递
-	- 每台OSPF路由器都会产生，他描述了直连口的信息
+	- 每台OSPF路由器都会产生，他**描述了直连口的信息**
 	- 包含链路类型：P2P，TransNet，StubNet，Vlink
 	1. 包内容
 		1. LSA header
@@ -58,7 +58,7 @@ published: false
 			7. B（border）： 若产生次LSA的路由器为ABR，则置位
 			8. links：link数量
 	2. 关键记忆点：
-		1. 对于一个网络来说需要描述清楚以下信息
+		1. 对于一个网络来说要**描述清楚直连口**需要描述清楚以下信息
 			1. header：我的邻居路由器（router ID）
 			2. 我的信息（router ID）
 			3. 我的邻居路由器，link type=p2p，link id=router ID，link data=通告这个LSA的接口地址
