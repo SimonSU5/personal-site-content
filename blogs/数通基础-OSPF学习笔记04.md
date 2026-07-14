@@ -59,11 +59,12 @@ published: false
 			8. links：link数量
 	2. 关键记忆点：
 		1. 对于一个网络来说需要描述清楚以下信息
-			1. header：我的信息（router ID）
-			2. 我的邻居路由器，link type=p2p，link id=router ID
-			3. 如果我是广播型网络（link type=transnet），我的DR是谁（link data -> router ID）
-			4. 接口路由是多少？link ID=stubnet，
-			5. 度量值多少？（metric）
+			1. header：我的邻居路由器（router ID）
+			2. 我的信息（router ID）
+			3. 我的邻居路由器，link type=p2p，link id=router ID，link data=通告这个LSA的接口地址
+			4. 如果我是广播型网络（link type=transnet），我的DR是谁（link id -> router ID），link data=通告这个LSA的接口地址
+			5. 接口路由是多少？link type=stubnet，link ID=网段，link data=掩码
+			6. 度量值多少？（metric）
 
 | Link Type                                              | Link ID                    | Link Data                |            |
 | ------------------------------------------------------ | -------------------------- | ------------------------ | ---------- |
