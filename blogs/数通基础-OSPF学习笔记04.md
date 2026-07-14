@@ -91,3 +91,5 @@ published: false
 		1. 区域边缘路由器（ABR，Area Border Router）：区域边缘的路由器
 		2. 骨干路由器（BR，Backbone Router）：area 0路由器
 		3. 内部路由器（IR，Internal Router）：非骨干区域非区域边缘路由器的路由器
+	3. 3类LSA传输过程
+		1. 
