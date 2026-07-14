@@ -81,4 +81,5 @@ published: false
 	2. payload
 		1. network mask：MA网络的子网掩码
 		2. attached router：连接到该MA网络的所有路由器（包括DR）router id。
-3. 3类LSA——network su
+3. 3类LSA——network summery LSA
+	1. 
