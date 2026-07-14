@@ -59,10 +59,11 @@ published: false
 			8. links：link数量
 	2. 关键记忆点：
 		1. 对于一个网络来说需要描述清楚以下信息
-			1. 我的邻居路由器（router ID）
+			1. header：我的邻居路由器（router ID）
 			2. 我的信息（router ID）
 			3. 如果我是广播型网络（link ID），我的DR是谁（link data -> router ID）
-			4. 度量值多少？（metric）
+			4. 
+			5. 度量值多少？（metric）
 
 | Link Type                                              | Link ID                    | Link Data                |            |
 | ------------------------------------------------------ | -------------------------- | ------------------------ | ---------- |
