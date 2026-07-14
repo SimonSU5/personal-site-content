@@ -58,11 +58,11 @@ published: false
 			7. B（border）： 若产生次LSA的路由器为ABR，则置位
 			8. links：link数量
 
-| Link Type                                              | Link ID                    | Link Data                |
-| ------------------------------------------------------ | -------------------------- | ------------------------ |
-| Point-to-Point (P2P)：描述一个从本路由器到邻居路由器之间的点到点链路，属于拓扑信息    | 邻居路由器的Router ID            | 宣告该Router LSA的路由器接口的IP地址 |
-| TransNet：描述一个从本路由器到一个Transit网段（例如MA或者NBMA网段）的连接，属于拓扑信息 | DR的接口IP地址                  | 宣告该Router LSA的路由器接口的IP地址 |
-| StubNet：描述一个从本路由器到一个Stub网段（例如Loopback接口）的连接，属于网段信息     | 宣告该Router LSA的路由器接口的网络IP地址 | 该Stub网络的网络掩码             |
+| Link Type                                              | Link ID                    | Link Data                |            |
+| ------------------------------------------------------ | -------------------------- | ------------------------ | ---------- |
+| Point-to-Point (P2P)：描述一个从本路由器到邻居路由器之间的点到点链路，属于拓扑信息    | 邻居路由器的Router ID            | 宣告该Router LSA的路由器接口的IP地址 | 拓扑信息       |
+| TransNet：描述一个从本路由器到一个Transit网段（例如MA或者NBMA网段）的连接，属于拓扑信息 | DR的接口IP地址                  | 宣告该Router LSA的路由器接口的IP地址 | 拓扑信息       |
+| StubNet：描述一个从本路由器到一个Stub网段（例如Loopback接口）的连接，属于网段信息     | 宣告该Router LSA的路由器接口的网络IP地址 | 该Stub网络的网络掩码             | 路由信息（接口路由） |
 
 2. 2类LSA——network LSA（TransNet网络，DR生成）
 	- 由DR产生，描述本网段的链路状态，在所属的区域内传播
