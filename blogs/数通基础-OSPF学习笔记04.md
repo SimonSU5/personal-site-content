@@ -82,7 +82,7 @@ published: false
 		1. network mask：MA网络的子网掩码
 		2. attached router：连接到该MA网络的所有路由器（包括DR）router id。
 3. 3类LSA——network summery LSA
-	- 3类LSA主要是解决单区域内路由问题，以下是设立区域的原因。
+	- 3类LSA主要是解决区域间路由问题，以下是设立区域的原因。
 	1. 单区域存在的问题
 		1. 当网络越大，LSDB越臃肿，路由计算越困难
 		2. 当网络越大，网络变动通告越慢
