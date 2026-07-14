@@ -49,10 +49,10 @@ published: false
 			2. link state ID：本机router ID
 			3. advertising router：产生该LSA的路由器router id（本机router ID）
 		2. payload（广播型，只有拓扑信息，没有路由信息）
-			1. link ID： DR接口IP地址
-			2. link data：OSPF出接口IP地址
-			3. link type：TransNet
-			4. metric：1
+			1. link ID： 见下表
+			2. link data：见下表
+			3. link type：见下表
+			4. metric：x度量
 			5. V（virtual link）： 若产生此LSA的路由器为虚链接的端点，则置位
 			6. E（external）： 若产生此LSA的路由器为ASBR，则置位
 			7. B（border）： 若产生次LSA的路由器为ABR，则置位
@@ -60,9 +60,9 @@ published: false
 	2. 关键记忆点：
 		1. 对于一个网络来说需要描述清楚以下信息
 			1. header：我的信息（router ID）
-			2. 我的邻居路由器（router ID）
-			3. 如果我是广播型网络（link ID），我的DR是谁（link data -> router ID）
-			4. 
+			2. 我的邻居路由器，link type=p2p，link id=router ID
+			3. 如果我是广播型网络（link type=transnet），我的DR是谁（link data -> router ID）
+			4. 接口路由是多少？link ID=stubnet，
 			5. 度量值多少？（metric）
 
 | Link Type                                              | Link ID                    | Link Data                |            |
