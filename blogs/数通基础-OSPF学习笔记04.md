@@ -88,7 +88,7 @@ published: false
 		2. 当网络越大，网络变动通告越慢
 		3. 单区域设计导致OSPF无法做**路由汇总**。
 	2. 路由器类别
-		1. 区域边缘路由器（ABR，Area Border Router）：区域边缘的路由器
+		1. 区域边缘路由器（ABR，Area Border Router）：区域边缘的路由器，既有骨干口，又有非骨干口
 		2. 骨干路由器（BR，Backbone Router）：area 0路由器
 		3. 内部路由器（IR，Internal Router）：非骨干区域非区域边缘路由器的路由器
 	3. 3类LSA传输过程
