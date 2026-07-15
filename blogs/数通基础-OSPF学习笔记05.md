@@ -13,4 +13,5 @@ published: false
 ---
 # 防环机制
 
-1. 
+
+1. 要求OSPF
