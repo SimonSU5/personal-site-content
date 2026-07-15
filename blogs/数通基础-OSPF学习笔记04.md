@@ -92,4 +92,76 @@ published: false
 		2. 骨干路由器（BR，Backbone Router）：area 0路由器
 		3. 内部路由器（IR，Internal Router）：非骨干区域非区域边缘路由器的路由器
 	3. 3类LSA传输过程
+
+**网络拓扑示例：**
+
+```mermaid
+graph TB
+    subgraph Area1["Area 1"]
+        R1["R1<br/>Router ID: 1.1.1.1<br/>内部路由器"]
+        R2["R2<br/>Router ID: 2.2.2.2<br/>ABR"]
+        Net1["192.168.1.0/24"]
+        
+        R1 ---|"1/2类LSA"| R2
+        R1 ---|"直连"| Net1
+    end
+    
+    subgraph Area0["Area 0 (骨干区域)"]
+        R2_0["R2<br/>Router ID: 2.2.2.2<br/>ABR"]
+        R3["R3<br/>Router ID: 3.3.3.3<br/>内部路由器"]
+        R4["R4<br/>Router ID: 4.4.4.4<br/>内部路由器"]
+        
+        R2_0 ---|"3类LSA"| R3
+        R2_0 ---|"3类LSA"| R4
+        R3 --- R4
+    end
+    
+    R2 -.->|"区域边界"| R2_0
+    
+    style Area1 fill:#e1f5ff
+    style Area0 fill:#fff4e1
+```
+
+**3类LSA传输流程：**
+
+```mermaid
+flowchart TD
+    A["Area 1 内部路由器<br/>产生 1类/2类 LSA"] --> B["ABR 接收 1/2类 LSA<br/>运行 SPF 计算"]
+    B --> C["ABR 生成 3类 LSA<br/>（Network Summary LSA）"]
+    C --> D["3类 LSA 泛洪到 Area 0"]
+    D --> E["Area 0 内部路由器<br/>接收 3类 LSA"]
+    E --> F["更新路由表<br/>添加到达 Area 1 网段的路由"]
+    
+    C --> G["3类 LSA 可继续传播<br/>到其他非骨干区域"]
+    G --> H["其他区域 ABR<br/>继续转发 3类 LSA"]
+    
+    style A fill:#e1f5ff
+    style B fill:#ffe1e1
+    style C fill:#fff4e1
+    style F fill:#d4edda
+```
+
+**传输过程说明：**
+1. Area 1 内部的路由器（如 R1）产生 1类和 2类 LSA，描述区域内的拓扑和网段信息
+2. ABR（R2）接收到这些 LSA 后，通过 SPF 算法计算出到达各网段的路由
+3. ABR 将这些路由信息封装成 **3类 LSA（Network Summary LSA）**
+4. 3类 LSA 只在区域间传递，不会泛洪回原区域
+5. Area 0 中的路由器收到 3类 LSA 后，学习到到达 Area 1 网段的路由
+6. 3类 LSA 可以继续由其他 ABR 转发到更多的非骨干区域
+
+**关键特点：**
+- 3类 LSA 由 **ABR 产生**，只有 ABR 才能产生 3类 LSA
+- 3类 LSA 描述的是**网段路由信息**，而非拓扑信息
+- 3类 LSA 可以在**非骨干区域之间**通过 Area 0 传递
+- 3类 LSA 传递到某个区域后，该区域的 ABR 会继续生成新的 3类 LSA 传递到其他区域（**默认不开启路由过滤，会形成次优路由**）
+
+**查看 3类 LSA 的命令：**
+```bash
+# 查看所有 3类 LSA
+dis ospf lsdb summary
+
+# 查看特定网段的 3类 LSA
+dis ospf lsdb summary 192.168.1.0
+```
+
 		1. 
