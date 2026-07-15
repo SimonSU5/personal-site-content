@@ -163,5 +163,3 @@ dis ospf lsdb summary
 # 查看特定网段的 3类 LSA
 dis ospf lsdb summary 192.168.1.0
 ```
-
-		1. 
