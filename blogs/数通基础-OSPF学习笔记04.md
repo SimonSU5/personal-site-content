@@ -1,6 +1,6 @@
 ---
-title: OSPF学习笔记04——LSA
-excerpt: OSPF学习笔记04——LSA
+title: OSPF学习笔记04——OSPF AS内LSA
+excerpt: OSPF学习笔记04——OSPF AS内LSA
 category: 学习笔记
 tags:
   - 路由协议
