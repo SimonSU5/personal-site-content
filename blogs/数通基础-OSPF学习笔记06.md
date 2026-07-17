@@ -82,3 +82,9 @@ flowchart TB
 
 1. 路由器类型：ASBR 自治系统边界路由器
 2. LSA类型：5类LSA-ASE LSA（AS external），AS外部路由，将域外路由在OSPF网络所有区域（除了[[数通基础-OSPF学习笔记07#stub区域]]和[[数通基础-OSPF学习笔记07#NSSA区域]]）内泛洪。
+
+## 5类LSA——ASE LSA外部LSA报文组成
+
+1. OSPF头部
+	1. link type 
+	2. 
