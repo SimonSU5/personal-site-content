@@ -86,5 +86,10 @@ flowchart TB
 ## 5类LSA——ASE LSA外部LSA报文组成
 
 1. OSPF头部
-	1. link type 
-	2. 
+	1. link state type: 5 ASE
+	2. link state id: 外部路由的目的网络地址
+	3. advertise router id: 宣告LSA的router id
+	4. metric：度量
+	5. E：置为表示
+	6. network mask：外部路由的目的网络掩码
+2. 
