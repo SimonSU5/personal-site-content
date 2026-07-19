@@ -97,12 +97,11 @@ ASBR生成，用于描述AS外部的路由。——泛洪到整个
 
 ## 4类LSA——ASBR Summery LSA，ASBR
 
- ABR生成，用于描述ASBR的
+ ABR生成，用于描述ASBR的路由信息
  
  1. LSA头部
 	1. link state type: 4 ASBR summery
 	2. link state id: ASBR router id
-	3. advertise router id: 宣告LSA的router id
-	4. E：0表示metric-type-1，1表示metric-type-2
-	5. metric：到目的网络的度量
-	6. network mask：外部路由的目的网络掩码
+	3. advertise router id: 宣告LSA的router id（ABR router id）
+	4. metric：到目的网络的度量
+	5. network mask：外部路由的目的网络掩码
