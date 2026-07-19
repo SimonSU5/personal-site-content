@@ -97,4 +97,4 @@ ASBR生成，用于描述AS外部的路由。——只在backbone区域传播
 
 ## 4类LSA——ASBR Summery LSA，ASBR
 
- ABR生成，用于描述backbone区域传过来的5类LSA。
+ ABR生成，用于向非骨干区域描述backbone区域传过来的5类LSA。
