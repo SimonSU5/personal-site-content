@@ -96,3 +96,5 @@ ASBR生成，用于描述AS外部的路由。——只在backbone区域传播
 	6. network mask：外部路由的目的网络掩码
 
 ## 4类LSA——ASBR Summery LSA，ASBR
+
+ ABR生成，用于描述backbone区域传过来的5类LSA。
