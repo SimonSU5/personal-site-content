@@ -60,7 +60,7 @@ published: false
 	2. 关键记忆点：
 		1. 对于一个网络来说要**描述清楚直连口**需要描述清楚以下信息
 			1. header：我的邻居路由器（router ID）
-			2. 我的信息（router ID）
+			2. header：我的信息（router ID）
 			3. 我的邻居路由器，link type=p2p，link id=router ID，link data=通告这个LSA的接口地址
 			4. 如果我是广播型网络（link type=transnet），我的DR是谁（link id -> router ID），link data=通告这个LSA的接口地址
 			5. 接口路由是多少？link type=stubnet，link ID=网段，link data=掩码

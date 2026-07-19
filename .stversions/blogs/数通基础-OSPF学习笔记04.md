@@ -11,7 +11,7 @@ cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-09
 published: false
 ---
-	## LSA基本概念
+## LSA基本概念
 
 - LSA是路由计算的依据
 - LSU报文可以携带多种不同类型的LSA
