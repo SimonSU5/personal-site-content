@@ -104,4 +104,5 @@ ASBR生成，用于描述AS外部的路由。——泛洪到整个
 	2. link state id: ASBR router id
 	3. advertise router id: 宣告LSA的router id（ABR router id）
 	4. metric：到目的网络的度量
-	5. network mask：外部路由的目的网络掩码
+	5. network mask：无意义，空置
+2. 
