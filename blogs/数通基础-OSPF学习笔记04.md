@@ -55,7 +55,7 @@ published: false
 			4. metric：x度量
 			5. V（virtual link）： 若产生此LSA的路由器为虚链接的端点，则置位
 			6. E（external）： 若产生此LSA的路由器为ASBR，则置位
-			7. B（border）： 若产生次LSA的路由器为ABR，则置位
+			7. B（border）： 若产生此LSA的路由器为ABR，则置位
 			8. links：link数量
 	2. 关键记忆点：
 		1. 对于一个网络来说要**描述清楚直连口**需要描述清楚以下信息
