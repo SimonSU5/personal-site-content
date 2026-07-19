@@ -92,5 +92,4 @@ flowchart TB
 	4. E：0表示metric-type-1，1表示metric-type-2
 	5. metric：到目的网络的度量
 	6. network mask：外部路由的目的网络掩码
-
-## 4类LSA——ASBR Summery LSA，ASBR
+2. 
