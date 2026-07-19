@@ -85,7 +85,7 @@ flowchart TB
 
 ## 5类LSA——ASE LSA外部LSA报文组成
 
-ASBR生成，用于描述AS外部的路由。
+ASBR生成，用于描述AS外部的路由。——泛洪到整个
 
 1. LSA头部
 	1. link state type: 5 ASE
