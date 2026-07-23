@@ -100,4 +100,5 @@ published: false
 	3. LSP ID：system ID，伪结点ID，LSP分片编号
 	4. seq num：LSP版本，越大越新
 	5. ATT
-	6. 
+6. LSDB
+	1. LSP ID：system ID.伪结点ID.分片号*（* 代表自己生成的）
