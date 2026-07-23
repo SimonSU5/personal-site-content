@@ -112,4 +112,7 @@ published: false
 	3. 伪结点LSP
 		1. 链路上的所有邻接sys ID
 		2. 无路由信息
-		3. 
+7. CSNP
+	1. 包含设备LSDB中所有的LSP摘要，路由器通过CSNP判断是否需要同步LSDB。
+	2. 广播型网络CSNP有DIS默认10s间隔发送，P2P默认只在第一次建立时发送。
+		1. source
