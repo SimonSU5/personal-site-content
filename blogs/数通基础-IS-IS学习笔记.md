@@ -137,3 +137,6 @@ published: false
 ---
 
 1. ISIS路由计算
+	1. level 1 路由计算
+		1. l1只有l1的LSP，不能维护l2的LSP。——l1路由器不可能有骨干路由的LSP
+		2. l1路由器
