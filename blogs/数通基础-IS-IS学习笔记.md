@@ -29,9 +29,11 @@ published: false
 		2. level 2 CSNP
 4. TLV
 	1. type 2 LSP：中间系统邻接
-	2. 128：内部接口可达性
-	3. 130：外部接口可达性
-	4. 132：IP接口地址
+	2. 1：区域号
+	3. 128：内部接口可达性
+	4. 129：支持的协议
+	5. 130：外部接口可达性
+	6. 132：IP接口地址
 5. NET地址
 	1. 特殊的NSAP地址（ISO的IP）
 	2. AREA ID（区域）+System ID（Router id）+SEL（=00）
@@ -72,6 +74,7 @@ published: false
 2. IIH报文 IS-IS hello报文
 	1. holding time：默认30秒，30s没有收到hello报文，则断开链接
 	2. priority：选举DIS。取值范围0-127，数值越大越优先。优先级一样，选取mac大的。只有LAN 的IIH才会携带
+	3. circuit：
 3. 邻接接关系建立过程
 	1. 所有设备都会建立邻接关系
 	2. R1发送IIH（sys id，area，neighbor）-R1，R2initial
@@ -89,4 +92,3 @@ published: false
 	8. DIS发送IIH的频率是普通的3倍。这样能够更快发现DIS的故障。
 	9. DIS可以被抢占
 	10. 同一网段同一级别都两两建立邻接关系。
-	11. 
