@@ -146,3 +146,8 @@ published: false
 				1. acl
 				2. isis视图下import-route isis level-2 into level-1 filter 2000
 			2. L1计算出详细路由作出最优路由选择
+	2. level 2路由计算
+		1. level 1-2路由器会将l1的路由转换成l2，发送给l2路由器。
+
+---
+ISIS认证
