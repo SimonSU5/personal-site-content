@@ -101,4 +101,11 @@ published: false
 	4. seq num：LSP版本，越大越新
 	5. ATT
 6. LSDB
-	1. LSP ID：system ID.伪结点ID.分片号*（* 代表自己生成的）
+	1. LSP ID：system ID.伪结点ID-分片号*（* 代表自己生成的）
+	2. 实结点LSP：
+		1. 本设备系统ID
+		2. 协议（IPv4）
+		3. 区域号
+		4. 接口信息（IP地址）
+		5. 邻接关系（所有伪结点）
+		6. 路由信息（所有dir）
