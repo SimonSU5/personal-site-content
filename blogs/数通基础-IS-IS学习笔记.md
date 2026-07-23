@@ -84,3 +84,4 @@ published: false
 	3. 伪结点生成伪结点LSP——对比ospf2类LSA
 	4. 实节点生成LSP——对比ospf1类LSA
 	5. 伪结点LSP：使用伪结点DIS的sys ID以及circuit ID（非0值）标识。
+	6. 所有路由器都与伪结点建立邻接关系
