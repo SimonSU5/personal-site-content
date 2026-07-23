@@ -98,6 +98,7 @@ published: false
 	1. level1 LSP由l1路由器生成，l2 LSP由l2路由器生成。l1-2可以生成两种LSP
 	2. remaining lifetime：存活时间，最长1200s
 	3. LSP ID：system ID，伪结点ID，LSP分片编号
+		1. 分片10bit，能够分1024片
 	4. seq num：LSP版本，越大越新
 	5. ATT
 6. LSDB
@@ -151,3 +152,13 @@ published: false
 
 ---
 ISIS认证
+	1. 报文种类区分的认证
+		1. 接口认证——hello
+		2. 区域认证——CSNP PSNP LSP，level 1
+		3. 路由域认证——CSNP PSNP LSP，level 2
+			1. 可以对SNP和LSP分开认证
+	2. 认证方式认证
+		1. 简单认证
+		2. MD5认证
+		3. keychain认证
+		4. sha256 认证
