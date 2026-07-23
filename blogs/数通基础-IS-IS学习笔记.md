@@ -143,4 +143,6 @@ published: false
 		3. l1-2路由器会下发一个LSP，ATT置位告诉l1设备自己能够达到其他区域。L1会根据此LSP建立默认路由。
 		4. 可能出现次优路由——路由渗透
 			1. L1-2渗透（引入）外部路由
+				1. acl
+				2. isis视图下import-route isis level-2 into level-1 filter 2000
 			2. L1计算出详细路由作出最优路由选择
