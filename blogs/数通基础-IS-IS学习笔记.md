@@ -115,4 +115,14 @@ published: false
 7. CSNP
 	1. 包含设备LSDB中所有的LSP摘要，路由器通过CSNP判断是否需要同步LSDB。
 	2. 广播型网络CSNP有DIS默认10s间隔发送，P2P默认只在第一次建立时发送。
-		1. source
+		1. source ID
+		2. LSP start：标志帧LSP开始
+		3. LSP end
+8. PSNP
+	1. 当发现CSNP发来的LSDB不完全时，会用PSNP请求和确认LSP。
+		1. source ID
+9. 广播型网络LSP的同步过程
+	1. 新加入R3发送IIH
+	2. R3发送LSP同步
+	3. R1，R2收到R3LSP，并且扩充LSDB。并且发送CNSP描述自己的所有LSDB。
+	4. R3发现CNSP有R1 R2的路由信息，发送PNSP请求
