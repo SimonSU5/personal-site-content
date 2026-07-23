@@ -94,6 +94,10 @@ ASBR生成，用于描述AS外部的路由。——泛洪到整个
 	4. E：0表示metric-type-1，1表示metric-type-2
 	5. metric：到目的网络的度量
 	6. network mask：外部路由的目的网络掩码
+2. 路由计算类型
+	1. type1：优先级较高，外部路由开销和内部开销相当，有可比性。总开销=外部+内部开销
+	2. type2（缺省，引入外部路由时默认选择）：优先级较低，外部路由开销远大于内部路由开销。总开销=外部开销
+	3. **就算type2的cost小于type1的cost，也会选择type1的路由**
 
 ## 4类LSA——ASBR Summery LSA，ASBR
 
