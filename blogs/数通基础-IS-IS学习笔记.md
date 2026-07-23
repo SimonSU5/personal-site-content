@@ -93,4 +93,11 @@ published: false
 	9. DIS可以被抢占
 	10. 同一网段同一级别都两两建立邻接关系。
 	11. 01开头的（第8bit为1）为组播地址。目的地址为00:14结尾的，为level 1 的组播地址，00:15结尾的为level2的组播地址。
-	12. 伪结点SEL为01
+	12. 伪结点SEL为01，02，03...
+5. LSP
+	1. level1 LSP由l1路由器生成，l2 LSP由l2路由器生成。l1-2可以生成两种LSP
+	2. remaining lifetime：存活时间，最长1200s
+	3. LSP ID：system ID，伪结点ID，LSP分片编号
+	4. seq num：LSP版本，越大越新
+	5. ATT
+	6. 
