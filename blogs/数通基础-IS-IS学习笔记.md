@@ -125,4 +125,6 @@ published: false
 	1. 新加入R3发送IIH
 	2. R3发送LSP同步
 	3. R1，R2收到R3LSP，并且扩充LSDB。并且发送CNSP描述自己的所有LSDB。
-	4. R3发现CNSP有R1 R2的路由信息，发送PNSP请求
+	4. R3发现CNSP有R1 R2的路由信息，发送PNSP请求路由信息。
+	5. R1，R2发送LSP
+	6. R3收到，发送PNSP表示收到。
