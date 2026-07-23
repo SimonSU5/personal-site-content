@@ -149,6 +149,8 @@ published: false
 			2. L1计算出详细路由作出最优路由选择
 	2. level 2路由计算
 		1. level 1-2路由器会将l1的路由转换成l2，发送给l2路由器。
+	3. 等价路由
+		1. 使用nexthop xxxx weight value  value值越小，优先级越高
 
 ---
 ISIS认证
