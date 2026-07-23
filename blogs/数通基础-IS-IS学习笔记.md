@@ -129,4 +129,11 @@ published: false
 	5. R1，R2发送LSP
 	6. R3收到，发送PNSP表示收到。
 10. 点到点网络LSP同步过程
-	1. 
+	1. 建立邻接
+	2. 双方发CNSP
+	3. 两边发PNSP请求LSP
+	4. 两边发LSP
+	5. 两边同步LSDB，发送PNSP表示收到。
+---
+
+1. ISIS路由计算
