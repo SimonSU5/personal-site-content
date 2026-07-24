@@ -57,4 +57,23 @@ BGP报文
 			5. opt param len
 				1. optional param
 		2. update——发布或者撤销路由
-			1. 
+			1. 一个update可以包括属性一致的多个路由
+			2. 一个update可以包括多个不可达路由，告诉对等体撤销
+			3. 组成
+				1. withdrawn routes：不可达路由
+				2. path attributes：路径属性
+				3. NLRI：可达路由的前缀和前缀二元组——路由信息
+		3. notification
+			1. error code
+			2. error subcode
+		4. keepalive
+			1. 没有packet内容，只有公共头
+		5. route refresh
+			1. AFI：地址族标识16bit（ipv4或者ipv6）
+			2. res：保留 8bit置0
+			3. SAFI：子地址族标识8bit
+
+---
+
+BGP邻居状态机
+
