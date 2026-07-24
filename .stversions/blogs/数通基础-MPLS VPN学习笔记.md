@@ -58,7 +58,12 @@ MPLS 转发
 	1. 控制平面
 		1. 标签信息表LIB：有LDP标签分发协议分配
 	2. 转发平面
-		1. FIB。LFIB
+		1. FIB，LFIB
+	![[数通基础-MPLS VPN学习笔记#MPLS体系结构]]
+4. LSP 建立原则
+	1. 网络层协议为IP协议时，FEC路由必须存在于LSR的IP路由表中。否则FEC不生效
+	2. FEC数据被发到LSR时，必须携带正确的标签。
+### MPLS体系结构
 
 ```mermaid
 flowchart TB
@@ -94,4 +99,28 @@ flowchart TB
     LDP --> FIB
     LDP --> LFIB
     LIB --> LFIB
+```
+
+### LSP建立原则
+```mermaid
+flowchart LR
+    subgraph LeftIP ["左侧IP网络 1.1.1.0/24"]
+        C1[目的流量:4.4.4.4]
+    end
+    R1["R1 入标签:Null<br>出标签:1027<br>FEC:4.4.4.0/24"]
+    R2["R2 入标签:1027<br>出标签:1026<br>FEC:4.4.4.0/24"]
+    R3["R3 入标签:1026<br>出标签:1025<br>FEC:4.4.4.0/24"]
+    R4["R4 入标签:1025<br>出标签:Null<br>FEC:4.4.4.0/24"]
+    subgraph RightIP ["右侧IP网络 4.4.4.0/24"]
+        C2[目标网段4.4.4.0/24]
+    end
+    subgraph MPLS域 ["MPLS Domain"]
+        R1 & R2 & R3 & R4
+    end
+
+    C1 -->|"纯IP报文"| R1
+    R1 -->|"MPLS标签1027"| R2
+    R2 -->|"MPLS标签1026"| R3
+    R3 -->|"MPLS标签1025"| R4
+    R4 -->|"剥离标签，纯IP转发"| C2
 ```
