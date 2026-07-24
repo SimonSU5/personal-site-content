@@ -73,8 +73,10 @@ MPLS 转发
 		3. 包括：tunnel id，FEC到NHLFE映射信息。
 	2. NHLFE（next hop label forwarding entry）
 		1. 在ingress路由器和transit路由器中存在
-		2. 
-	3. ILM
+		2. 包括：tunnel id，出接口，下一跳，出标签，标签操作类型
+	3. ILM（incoming label map）
+		1. 在transit和egress路由器中存在
+		2. 包括：tunnel id，入标签，入接口，标签操作类型
 6. 静态LSP
 7. 动态LSP
 	1. 使用LDP协议
