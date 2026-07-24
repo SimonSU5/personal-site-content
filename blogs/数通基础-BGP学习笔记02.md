@@ -39,11 +39,20 @@ BGP报文
 1. 应用层报文：BGP公共报文头+BGP packet
 	1. 公共报文头
 		1. marker 16B
+			1. 所有16B都为1，表明BGP的明确开头。
 		2. length 2B
 		3. Type 1B
-	2. packet类型
-		1. open：协商BGP对等体参数，建立对等体关系。在tcp链接之后
-		2. update：发送BGP路由更新。在peer建立成功或者有改变
-		3. notification：报告错误信息。在运行过程中发现错误时，通告对等体中断peer
-		4. keepalive：维护对等体关系
-		5. route-refresh：路由策略发生变化时，触发请求对等体重新通告路由
+			1. packet类型（上面的Type）
+				1. open：协商BGP对等体参数，建立对等体关系。在tcp链接之后
+				2. update：发送BGP路由更新。在peer建立成功或者有改变
+				3. notification：报告错误信息。在运行过程中发现错误时，通告对等体中断peer
+				4. keepalive：维护对等体关系
+				5. route-refresh：路由策略发生变化时，触发请求对等体重新通告路由
+	2. packet内容
+		1. open
+			1. version（8bit）v4或v6
+			2. my as（16bit）
+			3. hold time
+			4. bgp ID
+			5. opt param len
+				1. optional param
