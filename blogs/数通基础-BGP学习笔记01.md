@@ -58,5 +58,7 @@ BGP是一种实现自治系统As之间的路由可达，并选择最佳路由的
 
 - TCP 连接源地址：
 1. IBGP使用loopback，冗余好，更稳定
-2. EBGP使用物理接口地址
+2. EBGP默认使用物理接口地址——如果要用loopback，需要用connect-interface指定loopback接口
+
+
 
