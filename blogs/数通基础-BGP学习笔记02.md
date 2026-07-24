@@ -52,7 +52,9 @@ BGP报文
 		1. open
 			1. version（8bit）v4或v6
 			2. my as（16bit）
-			3. hold time
-			4. bgp ID
+			3. hold time（16bit）默认180s，向下协商
+			4. bgp ID（32bit）router id，以IP的形式表示
 			5. opt param len
 				1. optional param
+		2. update——发布或者撤销路由
+			1. 

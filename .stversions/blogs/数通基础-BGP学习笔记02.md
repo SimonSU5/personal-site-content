@@ -48,4 +48,13 @@ BGP报文
 				3. notification：报告错误信息。在运行过程中发现错误时，通告对等体中断peer
 				4. keepalive：维护对等体关系
 				5. route-refresh：路由策略发生变化时，触发请求对等体重新通告路由
-	2. 
+	2. packet内容
+		1. open
+			1. version（8bit）v4或v6
+			2. my as（16bit）
+			3. hold time（16bit）默认180s，向下协商
+			4. bgp ID（32bit）router id，以IP的形式表示
+			5. opt param len
+				1. optional param
+		2. update
+			1. 
