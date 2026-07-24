@@ -20,4 +20,4 @@ published: false
 		1. 静态路由添加环回口
 		2. peer 地址 as-number 对端as
 		3. 指定环回口：peer 环回口地址 connect-interface LoopBack x
-		4. 
+		4. TTL改为2：peer 环回口地址 ebgp-max-hop 2
