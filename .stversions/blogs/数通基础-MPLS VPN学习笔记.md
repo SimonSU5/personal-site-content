@@ -11,7 +11,8 @@ cover: assets/covers/image.jpg
 date: 2026-07-24
 published: false
 ---
-基本概念
+MPLS 基本概念
+
 1. MPLS位于2层和3层之间
 2. 通过数据链路层和网络层之间增加的额外MPLS头部，实现MPLS的快速转发。
 3. MPLS域
@@ -43,4 +44,13 @@ published: false
 	4. TTL：8bit
 8. LSR对标签的操作
 	1. push压入
-	2. swap：域内转发的时候
+	2. swap交换：域内转发的时候，根据标签转发表，用下一跳的标签，替换报文的栈顶标签。
+	3. pop弹出：去掉MPLS标签。
+
+---
+MPLS 转发
+
+1. 过程
+	1. 数据轨道相应的FEC
+	2. 按照提前规划好的LSP转发
+2. 对于整个MPLS域，LSP是FECC进入和离开的路径
