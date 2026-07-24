@@ -54,3 +54,43 @@ MPLS 转发
 	1. 数据轨道相应的FEC
 	2. 按照提前规划好的LSP转发
 2. 对于整个MPLS域，LSP是FECC进入和离开的路径，对于单台LSR，需要建立标签转发表，用标签来标识FEC，并绑定相应的标签处理和转发行为。
+3. 体系结构：
+	1. 控制平面
+		1. 标签信息表LIB：有LDP标签分发协议分配
+	2. 发
+
+```mermaid
+flowchart TB
+    %% 样式定义
+    classDef controlPlane fill:#fff9c4,stroke:#f1c40f,stroke-width:2px,color:#333
+    classDef forwardPlane fill:#e8f8f5,stroke:#1abc9c,stroke-width:2px,color:#333
+    classDef planeTitle fill:none,stroke:none,color:#2c3e50,font-size:18px,font-weight:bold
+
+    %% 控制平面区域
+    subgraph CP["控制平面"]
+        direction TB
+        IP["IP路由协议"]:::controlPlane
+        RIB["路由信息表（RIB）"]:::controlPlane
+        LDP["标签分发协议（LDP）"]:::controlPlane
+        LIB["标签信息表（LIB）"]:::controlPlane
+        
+        IP --> RIB
+        RIB --> LDP
+        LDP --> LIB
+    end
+
+    %% 转发平面区域
+    subgraph FP["转发平面"]
+        direction TB
+        FIB["转发信息表（FIB）"]:::forwardPlane
+        LFIB["标签转发信息表（LFIB）"]:::forwardPlane
+        
+        FIB --> LFIB
+    end
+
+    %% 跨平面连接
+    RIB --> FIB
+    LDP --> FIB
+    LDP --> LFIB
+    LIB --> LFIB
+```
