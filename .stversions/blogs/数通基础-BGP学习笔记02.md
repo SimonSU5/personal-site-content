@@ -75,3 +75,10 @@ BGP报文
 
 ---
 
+BGP邻居状态机
+
+1. Idle：开始准备
+2. connect：正在进行TCP链接，等待完成中。**认证**
+3. active：TCP链接失败，反复尝试TCP链接
+4. opensent：tcp已经建立成功，开始发送open 包。
+5. openconfirm：参数能力特性协商成功
