@@ -34,5 +34,6 @@ published: false
 7. MPLS 标签——可以有多个标签
 	1. label：20bit——类比目标IP地址
 	2. EXP：用于CoS，长度3bit。
-	3. S：栈底位：表示是最后一个标签
-	4. 
+	3. S：栈底位：表示是最后一个标签。1bit
+	4. TTL：8bit
+	5. 
