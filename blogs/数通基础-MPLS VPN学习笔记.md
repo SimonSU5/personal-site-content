@@ -57,7 +57,10 @@ MPLS 转发
 3. 体系结构：
 	1. 控制平面
 		1. 标签信息表LIB：有LDP标签分发协议分配
-	2. 发
+	2. 转发平面
+		1. FIB，LFIB
+	
+### MPLS体系结构
 
 ```mermaid
 flowchart TB

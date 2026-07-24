@@ -55,6 +55,10 @@ MPLS 转发
 	2. 按照提前规划好的LSP转发
 2. 对于整个MPLS域，LSP是FECC进入和离开的路径，对于单台LSR，需要建立标签转发表，用标签来标识FEC，并绑定相应的标签处理和转发行为。
 3. 体系结构：
+	1. 控制平面
+		1. 标签信息表LIB：有LDP标签分发协议分配
+	2. 转发平面
+		1. FIB。LFIB
 
 ```mermaid
 flowchart TB
@@ -91,7 +95,3 @@ flowchart TB
     LDP --> LFIB
     LIB --> LFIB
 ```
-
-	1. 控制平面
-		1. 标签信息表LIB：有LDP标签分发协议分配
-	2. 
