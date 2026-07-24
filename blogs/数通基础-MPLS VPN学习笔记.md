@@ -67,8 +67,13 @@ MPLS 转发
 	3. 对某一FEC，设备上存在进(In)标签和出(Out)标签，分别表示该FEC的数据接收时和发送时所携带的标签。
 	4. 4.4.4.0/24绑定入标签和出标签，入标签一定要等于上一跳的出标签。这样只需要看标签，而不用看IP。
 5. MPLS标签转发
-	1. FTN
-	2. NHLFE
+	1. FTN(FEC to NHLFE)
+		1. 只在ingress路由器 存在
+		2. 当LSR收到IP报文，LSR会查看FIB，如果FIB中非0，则执行隧道转发
+		3. 包括：tunnel id，FEC到NHLFE映射信息。
+	2. NHLFE（next hop label forwarding entry）
+		1. 在ingress路由器和transit路由器中存在
+		2. 
 	3. ILM
 6. 静态LSP
 7. 动态LSP
