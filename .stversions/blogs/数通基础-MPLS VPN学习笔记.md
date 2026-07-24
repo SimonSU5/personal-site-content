@@ -31,8 +31,16 @@ published: false
 6. LSP 标签交换路径（label switched path）——隧道
 	1. 标签报文穿越MPLS网络时走的路径
 	2. 同一个FEC报文通常采用相同的LSP穿越MPLS域。对于同一个FEC（比如同一个目标网段），MPLS LSR总以相同的标签转发。
+	3. 可以静态指定配置，也可以动态计算
 7. MPLS 标签——可以有多个标签
 	1. label：20bit——类比目标IP地址
+		1. 标签空间，只有本地意义，20bit
+			1. 特殊标签：0-15
+			2. 静态LSP，静态CR-LSP：16-1024
+			3. 动态信令协议，如LDP，RSVP-TE，MP-BGP：1025-2^20 -1
 	2. EXP：用于CoS，长度3bit。
-	3. S：栈底位：表示是最后一个标签
-	4. 
+	3. S：栈底位：表示是最后一个标签。1bit
+	4. TTL：8bit
+8. LSR对标签的操作
+	1. push压入
+	2. swap：域内转发的时候
