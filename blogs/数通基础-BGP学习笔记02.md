@@ -147,13 +147,18 @@ BGP路径属性
 1. 每一条路由都有多个路径属性
 	1. 公认属性——每台BGP路由器都能识别
 		1. 公认必遵——必须包括在update报文中
-			1. origin
-			2. as_path
-			3. next_hop
+			1. **origin**
+			2. **as_path**
+				1. 是前往目标网络的路由经过的as号列表
+			3. **next_hop**
 		2. 公认任意——可能包括在update报文中
-			1. 本地优先级 local preference
-			2. 原子聚合 atomic_aggregate
+			1. **local preference 本地优先级** 
+			2. atomic_aggregate 原子聚合 
 	2. 可选属性
-		1. 可选过渡
-			1. aggregator
-		2. 可选非过渡
+		1. 可选过渡——可以不识别，但是会通告给其他对等体
+			1. aggregator 聚合者
+			2. **community 团体属性**
+		2. 可选非过渡——可以不识别，也不会通告给其他对等体
+			1. **MED值 类似于开销值**
+			2. cluster-list 路由反射器簇列表
+			3. originator-ID 路由反射器起源id
