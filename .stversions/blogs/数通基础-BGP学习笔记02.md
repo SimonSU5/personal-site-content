@@ -53,7 +53,7 @@ BGP报文
 			1. version（8bit）v4或v6
 			2. my as（16bit）
 			3. hold time（16bit）默认180s，向下协商
-			4. bgp ID（32bit）router id，以IP的形式表示
+			4. bgp ID（32bit）router id，以IP的形式表示（缺省为peer IP）
 			5. opt param len
 				1. optional param
 		2. update——发布或者撤销路由
@@ -234,7 +234,7 @@ IBGP路由反射器
 3. 设计路由反射器时需要考虑防环
 	1. cluster-list 路由反射器簇列表
 		1. 路由反射簇包括反射器RR和Client。一个AS中可以有多个反射簇。
-		2. 
+		2. 每个簇包含一个cluster_id 
 	2. originator-ID 路由反射器起源id
 		1. 路由环路时，发送者会丢弃收到的含有自己originator-id的路由。
 		![[Pasted image 20260725222843.png]]
