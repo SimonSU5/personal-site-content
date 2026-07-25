@@ -153,6 +153,8 @@ BGP路径属性
 					1. IGP（i）如果是使用network引入
 					2. EGP（e）如果通过EGP学习到（几乎不用了）
 					3. incomplete（？）如果是通过其他方式，如import-route
+				3. 当去往同一个目的网络存在多条不同origin属性的路由时，BGP将采用IGP>EGP>incomplete的方式选路。
+				4. acl+（route-policy if-match+apply origin xx）+peer 指定route polocy
 			2. **as_path**
 				1. 是前往目标网络的路由经过的as号列表，新加都加在左边
 				2. 作用
@@ -165,6 +167,7 @@ BGP路径属性
 						1. additive（最常用）：在左侧加上 apply as-path 300 additive
 						2. overwrite：将之前所有的as-path都去掉，加上新的。 apply as-path 400 overwrite
 						3. none overwrite：将之前所有的as-path都去掉。apply as-path none overwrite
+						4. 总体思路：acl+（route-policy if-match+apply）+peer 指定route polocy
 				5. as-path 类型
 					1. as-sequence：有序列表，默认
 					2. as-set：默认情况下，聚合之后会丢失前面的所有as。设置as-set后，聚合后，会将之前的所有as变成聚合，作为上一个as列表。**需要在聚合后添加as-set关键字。**

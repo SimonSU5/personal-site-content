@@ -147,6 +147,9 @@ BGP路径属性
 1. 每一条路由都有多个路径属性
 	1. 公认属性——每台BGP路由器都能识别
 		1. 公认必遵——必须包括在update报文中
+			
+			- **重要：如果在BGP做了route policy，需要在后面加一个全放通的policy。不然acl以外的路由会被丢弃**
+			
 			1. **origin**
 				1. 标记BGP路由的起源
 				2. 类型
@@ -154,6 +157,7 @@ BGP路径属性
 					2. EGP（e）如果通过EGP学习到（几乎不用了）
 					3. incomplete（？）如果是通过其他方式，如import-route
 				3. 当去往同一个目的网络存在多条不同origin属性的路由时，BGP将采用IGP>EGP>incomplete的方式选路。
+				4. acl+（route-policy if-match+apply origin xx）+peer 指定route polocy
 			2. **as_path**
 				1. 是前往目标网络的路由经过的as号列表，新加都加在左边
 				2. 作用
@@ -166,10 +170,17 @@ BGP路径属性
 						1. additive（最常用）：在左侧加上 apply as-path 300 additive
 						2. overwrite：将之前所有的as-path都去掉，加上新的。 apply as-path 400 overwrite
 						3. none overwrite：将之前所有的as-path都去掉。apply as-path none overwrite
+						4. 总体思路：acl+（route-policy if-match+apply）+peer 指定route polocy
 				5. as-path 类型
 					1. as-sequence：有序列表，默认
 					2. as-set：默认情况下，聚合之后会丢失前面的所有as。设置as-set后，聚合后，会将之前的所有as变成聚合，作为上一个as列表。**需要在聚合后添加as-set关键字。**
 			3. **next_hop**
+				1. 用于指定下一跳地址
+				2. 当路由器学习到一条路由后，会对下一跳检查。如果不包括在当前路由表内，则不可达。
+				3. next hop缺省操作
+					1. EBGP：通告路由时会使用peer本端地址。
+					2. IBGP：通告路由给IBGP邻居时，下一跳不变。【会导致不可达，所以需要使用peer xxxx next_hop_local】
+					3. EBGP特殊情况：如果有一个路由条目EBGP的peer和下一跳的地址在同一个网段，则下一跳不变直接传给EBGPpeer，这样对端的EBGPpeer可以直接给本设备的下一跳。				 ![[Pasted image 20260725164827.png]]
 		2. 公认任意——可能包括在update报文中
 			1. **local preference 本地优先级** 
 			2. atomic_aggregate 原子聚合 
