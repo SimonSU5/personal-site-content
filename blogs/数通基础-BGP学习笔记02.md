@@ -85,3 +85,16 @@ BGP邻居状态机
 	5. openconfirm：参数能力特性协商成功，已发送keepalive。等待对端发送keepalive
 	6. established：已经收到对方的keepalive包，双方协商一致。开始用update通告路由。
 	7. **任何一个环节错误，都会发送notification报文，返回idle状态**
+
+---
+BGP路由生成
+
+1. 被动注入，主动不会生成。
+2. 注入方式
+	1. network
+		1. 
+	2. import-route
+3. 支持路由summery
+4. 注入流程
+	1. IGP路由表
+	2. 注入BGP路由表
