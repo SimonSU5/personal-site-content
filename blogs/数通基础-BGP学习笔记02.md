@@ -149,6 +149,11 @@ BGP路径属性
 		1. 公认必遵——必须包括在update报文中
 			1. **origin**
 				1. 标记BGP路由的起源
+				2. 类型
+					1. IGP（i）如果是使用network引入
+					2. EGP（e）如果通过EGP学习到（几乎不用了）
+					3. incomplete（？）如果是通过其他方式，如import-route
+				3. 当去往同一个目的网络存在多条不同origin属性的路由时，BGP将采用IGP>EGP>incomplete的方式选路。
 			2. **as_path**
 				1. 是前往目标网络的路由经过的as号列表，新加都加在左边
 				2. 作用
