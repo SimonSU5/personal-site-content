@@ -161,7 +161,8 @@ BGP路径属性
 						2. overwrite：将之前所有的as-path都去掉，加上新的。 apply as-path 400 overwrite
 						3. none overwrite：将之前所有的as-path都去掉。apply as-path none overwrite
 				5. as-path 类型
-					1. 
+					1. as-sequence：有序列表，默认
+					2. as-set：默认情况下，聚合之后会丢失前面的所有as。设置as-set后，聚合后，会将之前的所有as变成聚合，作为上一个as列表。需要在聚合
 			3. **next_hop**
 		2. 公认任意——可能包括在update报文中
 			1. **local preference 本地优先级** 
