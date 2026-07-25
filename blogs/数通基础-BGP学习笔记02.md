@@ -101,9 +101,9 @@ BGP路由生成
 		3. 可以配合过滤手段减少
 	3. 路由聚合
 		1. 本端聚合
-			1. 首先保证本端BGP有明细路由
-			2. bgp进程下 aggregate xxxx x detail-suppressed
-		2. 
+		2. 首先保证本端BGP有明细路由
+		3. bgp进程下 aggregate xxxx x detail-suppressed
+		4. 如果没有detail-suppressed，本端路由会有所有明细最优有效路由和聚合最优有效路由。有抑制明细的情况下，* 会转变为s，代表被聚合。
 3. 注入流程
 	1. IGP路由表
 	2. 注入BGP路由表
