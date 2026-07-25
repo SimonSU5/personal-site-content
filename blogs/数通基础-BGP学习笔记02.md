@@ -153,6 +153,11 @@ BGP路径属性
 				2. 作用
 					1. 防止环路
 				3. 只有通过EBGP的时候才会加上AS号
+				4. 影响路由优选的原则
+					1. as-path更少的优选
+					2. 可能as-path更多的带宽更大。可以对as path进行修改。
+					3. 修改AS-path
+						1. additive：
 			3. **next_hop**
 		2. 公认任意——可能包括在update报文中
 			1. **local preference 本地优先级** 
