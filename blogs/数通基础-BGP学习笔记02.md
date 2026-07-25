@@ -188,19 +188,36 @@ BGP路径属性
 				3. 只传给IBGP对等体
 				4. **必须在import方向上**修改local_preference属性
 			2. atomic_aggregate 原子聚合 
+				1. 运行了aggregate xxxx xx detail_suppressed就会携带，告诉接下来的对等体不要再做聚合了。已经丢失了明细
 	2. 可选属性
 		1. 可选过渡——可以不识别，但是会通告给其他对等体
 			1. aggregator 聚合者
+				1. 运行了aggregate xxxx xx detail_suppressed就会携带
 			2. **community 团体属性**
-				1. 打路由标记，为不同路由进行归类，并且跨AS传递。简化路由策略执行。（不需要用ACL的路由前缀，只需要团体属性即可）
+				1. 打路由标记，为不同路由进行归类，**并且跨AS传递**。简化路由策略执行。（不需要用ACL的路由前缀，只需要团体属性即可）
 				2. 属性格式：AA:NN，各16bit，AA推荐为AS号，NN为自定义。
 				3. 公认属性：
 					1. 0（internet）：收到此团体属性后，可以向任何BGP发送
 					2. no_advertise（0xFFFFFF02）：收到此团体属性后，不向任何BGP对等体发送
-					3. No_export（0xFFFFFF01）：收到此团体属性后，不想AS外部发送。
+					3. No_export（0xFFFFFF01）：收到此团体属性后，不想AS外部发送。**也就是第一次会发到下一个AS，然后收到这个团体属性的路由的AS不再转给其他AS。**
 				4. 更改属性
-					1. acl+（route-policy ifmach+apply）+peer xxxx advertise-community
+					1. acl+（route-policy ifmach+apply comm xxx）+peer xxxx advertise-community
+					2. **给所有其他IGP发送的时候，也要加peer xxxx advertise-community**必须加，否则会丢community属性。
 		2. 可选非过渡——可以不识别，也不会通告给其他对等体
-			1. **MED值 类似于开销值**
+			1. **MED值 类似于开销值** 多出口鉴别器
+				1. 影响外部对等体流量如何进入对等体
+				2. MED值越小，路由越优先
+				3. MED被传递给EBGP邻居后，对等体可以在AS内传递。但是再次传递的时候就不会携带。
+				4. 缺省情况下，路由器只比较来自**同一相邻**BGP路由的MED值，如果是不同的AS，则不比较
+				5. 是否携带MED值的情况：
+					1. 本地始发，network或者import-route 引入。则会携带
+					2. 从ebgp收到，则出AS时不会携带。
+					3. IBGP对等体之间传递时，会保留并传递。
+				6. MED默认操作
+					1. IBGP network或者import-route 引入，MED会继承IGP的metric值。
+					2. BGP路由器将本地直连、静态路由通过network或者import-route 引入，MED为0。
+					3. MED不会跨AS传递。
+					![[Pasted image 20260725215923.png]]
+					4. 在路由器上运行default med可以更改med值。
 			2. cluster-list 路由反射器簇列表
 			3. originator-ID 路由反射器起源id
