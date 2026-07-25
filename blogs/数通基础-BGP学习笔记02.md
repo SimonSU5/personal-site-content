@@ -150,6 +150,9 @@ BGP路径属性
 			1. **origin**
 			2. **as_path**
 				1. 是前往目标网络的路由经过的as号列表
+				2. 作用
+					1. 防止环路
+				3. 只有通过EBGP的时候才会加上AS号
 			3. **next_hop**
 		2. 公认任意——可能包括在update报文中
 			1. **local preference 本地优先级** 
