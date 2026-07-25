@@ -186,6 +186,7 @@ BGP路径属性
 				1. 针对AS内部，告诉AS路由器，哪条路经是离开as的首选路径
 				2. local_preference属性越大路由越优。缺省为100
 				3. 只传给IBGP对等体
+				4. **必须在import方向上**修改local_preference属性
 			2. atomic_aggregate 原子聚合 
 	2. 可选属性
 		1. 可选过渡——可以不识别，但是会通告给其他对等体
