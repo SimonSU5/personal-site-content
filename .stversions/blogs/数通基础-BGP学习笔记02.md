@@ -188,10 +188,11 @@ BGP路径属性
 				3. 只传给IBGP对等体
 				4. **必须在import方向上**修改local_preference属性
 			2. atomic_aggregate 原子聚合 
-				1. 
+				1. 运行了aggregate xxxx xx detail_suppressed就会携带，告诉接下来的对等体不要再做聚合了。已经丢失了明细
 	2. 可选属性
 		1. 可选过渡——可以不识别，但是会通告给其他对等体
 			1. aggregator 聚合者
+				1. 运行了aggregate xxxx xx detail_suppressed就会携带
 			2. **community 团体属性**
 				1. 打路由标记，为不同路由进行归类，**并且跨AS传递**。简化路由策略执行。（不需要用ACL的路由前缀，只需要团体属性即可）
 				2. 属性格式：AA:NN，各16bit，AA推荐为AS号，NN为自定义。
@@ -220,3 +221,7 @@ BGP路径属性
 					4. 在路由器上运行default med可以更改med值。
 			2. cluster-list 路由反射器簇列表
 			3. originator-ID 路由反射器起源id
+
+---
+IBGP路由反射器
+
