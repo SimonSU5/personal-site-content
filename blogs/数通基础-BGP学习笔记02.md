@@ -140,3 +140,20 @@ BGP 通告原则
 2. 全连接建立，每个IBGP都有peer建立，指定环回口，next hop local。每个EBGP都有peer建立（如果环回口的话需要指定环回口，ebgp-max-hop 2）。
 	1. R5 R6各宣告了一个网段（使用环回口模拟）
 	2. R5 ping -a R5环回口地址 R6环回口 通。（注意一定要指定源地址。）
+
+---
+BGP路径属性
+
+1. 每一条路由都有多个路径属性
+	1. 公认属性——每台BGP路由器都能识别
+		1. 公认必遵——必须包括在update报文中
+			1. origin
+			2. as_path
+			3. next_hop
+		2. 公认任意——可能包括在update报文中
+			1. 本地优先级 local preference
+			2. 原子聚合 atomic_aggregate
+	2. 可选属性
+		1. 可选过渡
+			1. aggregator
+		2. 可选非过渡
