@@ -187,12 +187,12 @@ BGP路径属性
 				2. local_preference属性越大路由越优。缺省为100
 				3. 只传给IBGP对等体
 				4. **必须在import方向上**修改local_preference属性
-				5. 
 			2. atomic_aggregate 原子聚合 
 	2. 可选属性
 		1. 可选过渡——可以不识别，但是会通告给其他对等体
 			1. aggregator 聚合者
 			2. **community 团体属性**
+				1. 打路由标记，为不同路由进行归类，并且跨AS传递。简化路由策略执行。
 		2. 可选非过渡——可以不识别，也不会通告给其他对等体
 			1. **MED值 类似于开销值**
 			2. cluster-list 路由反射器簇列表
