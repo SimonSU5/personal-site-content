@@ -149,13 +149,19 @@ BGP路径属性
 		1. 公认必遵——必须包括在update报文中
 			1. **origin**
 			2. **as_path**
-				1. 是前往目标网络的路由经过的as号列表
+				1. 是前往目标网络的路由经过的as号列表，新加都加在左边
 				2. 作用
 					1. 防止环路
 				3. 只有通过EBGP的时候才会加上AS号
 				4. 影响路由优选的原则
 					1. as-path更少的优选
 					2. 可能as-path更多的带宽更大。可以对as path进行修改。
+					3. 修改AS-path
+						1. additive（最常用）：在左侧加上 apply as-path 300 additive
+						2. overwrite：将之前所有的as-path都去掉，加上新的。 apply as-path 400 overwrite
+						3. none overwrite：将之前所有的as-path都去掉。apply as-path none overwrite
+				5. as-path 类型
+					1. 
 			3. **next_hop**
 		2. 公认任意——可能包括在update报文中
 			1. **local preference 本地优先级** 
