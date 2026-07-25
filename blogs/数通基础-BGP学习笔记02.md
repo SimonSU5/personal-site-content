@@ -183,6 +183,9 @@ BGP路径属性
 					3. EBGP特殊情况：如果有一个路由条目EBGP的peer和下一跳的地址在同一个网段，则下一跳不变直接传给EBGPpeer，这样对端的EBGPpeer可以直接给本设备的下一跳。				 ![[Pasted image 20260725164827.png]]
 		2. 公认任意——可能包括在update报文中
 			1. **local preference 本地优先级** 
+				1. 针对AS内部，告诉AS路由器，哪条路经是离开as的首选路径
+				2. local_preference属性越大路由越优。缺省为100
+				3. 只传给IBGP对等体
 			2. atomic_aggregate 原子聚合 
 	2. 可选属性
 		1. 可选过渡——可以不识别，但是会通告给其他对等体
