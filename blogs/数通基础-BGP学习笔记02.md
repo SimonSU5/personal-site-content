@@ -98,8 +98,12 @@ BGP路由生成
 	2. import-route
 		1. import-route ospf 1（进程号）
 		2. 所有ospf都会被引入
-		3. 可以配合
+		3. 可以配合过滤手段减少
 	3. 路由聚合
+		1. 本端聚合
+			1. 首先保证本端BGP有明细路由
+			2. bgp进程下 aggregate xxxx x detail-suppressed
+		2. 
 3. 注入流程
 	1. IGP路由表
 	2. 注入BGP路由表

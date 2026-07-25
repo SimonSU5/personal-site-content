@@ -97,7 +97,12 @@ BGP路由生成
 		3. 必须时有效最优路由才可被通告到peer
 	2. import-route
 		1. import-route ospf 1（进程号）
-3. 支持路由summery
-4. 注入流程
+		2. 所有ospf都会被引入
+		3. 可以配合过滤手段减少
+	3. 路由聚合
+		1. 
+		2. bgp进程下 aggregate xxxx x detail-suppressed
+		3. 
+3. 注入流程
 	1. IGP路由表
 	2. 注入BGP路由表
