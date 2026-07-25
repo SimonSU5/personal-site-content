@@ -198,6 +198,8 @@ BGP路径属性
 					1. 0（internet）：收到此团体属性后，可以向任何BGP发送
 					2. no_advertise（0xFFFFFF02）：收到此团体属性后，不向任何BGP对等体发送
 					3. No_export（0xFFFFFF01）：收到此团体属性后，不想AS外部发送。
+				4. 更改属性
+					1. acl+（route-policy ifmach+apply）+peer xxxx advertise-community
 		2. 可选非过渡——可以不识别，也不会通告给其他对等体
 			1. **MED值 类似于开销值**
 			2. cluster-list 路由反射器簇列表
