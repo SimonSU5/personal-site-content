@@ -87,5 +87,8 @@ RSTP
 		4. 备份端口
 			1. 指定端口的备份。指定端口down后，30s后转化为指定端口。
 	2. 端口状态重新划分
+		1. discarding
+		2. learning
+		3. forwarding
 	3. BPDU格式改变，利用flag字段表明端口角色。
 	4. 快速收敛
