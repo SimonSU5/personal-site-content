@@ -7,7 +7,7 @@ tags:
   - 数通
   - 学习笔记
   - 
-cover: assets/covers/image.jpg
+cover: assets/covers/数通学习笔记-封面.png
 date: 2026-07-28
 published: false
 ---

@@ -7,7 +7,7 @@ tags:
   - 数通
   - IGP
   - 学习笔记
-cover: assets/covers/IS-IS学习笔记-封面.png
+cover: assets/covers/数通学习笔记-封面.png
 date: 2026-07-21
 published: false
 ---
