@@ -1,0 +1,214 @@
+<hj>dis cu
+!Software Version V200R021C00SPC100
+#
+sysname hj
+#
+undo info-center enable
+#
+vlan batch 20 100 to 150
+#
+authentication-profile name default_authen_profile
+authentication-profile name dot1x_authen_profile
+authentication-profile name dot1xmac_authen_profile
+authentication-profile name mac_authen_profile
+authentication-profile name multi_authen_profile
+authentication-profile name portal_authen_profile
+#
+telnet server enable
+telnet server-source -i Vlanif20
+#
+diffserv domain default
+#
+radius-server template default
+#
+pki realm default
+ certificate-check none
+#
+free-rule-template name default_free_rule
+#
+portal-access-profile name portal_access_profile
+#
+aaa
+ authentication-scheme default
+  authentication-mode local
+ authentication-scheme radius
+  authentication-mode radius
+ authorization-scheme default
+  authorization-mode local
+ accounting-scheme default
+  accounting-mode none
+ local-aaa-user password policy administrator
+  password history record number 0
+  password expire 0
+ domain default
+  authentication-scheme radius
+  accounting-scheme default
+  radius-server default
+ domain default_admin
+  authentication-scheme default
+  accounting-scheme default
+ local-user admin password irreversible-cipher $1c$Krq2KPFfH&$-lb.GBzr2!0'R.FuD+
+J~G&8jU,Z9.$$>ONT|:|UM$
+ local-user admin privilege level 15
+ local-user admin service-type telnet
+#
+interface Vlanif1
+#
+interface Vlanif20
+ ip address 10.10.20.2 255.255.255.0
+#
+interface Vlanif104
+#
+interface Vlanif105
+#
+interface Vlanif106
+#
+interface Vlanif150
+#
+interface GigabitEthernet0/0/1
+ port link-type trunk
+ port trunk allow-pass vlan 104 to 106
+#
+interface GigabitEthernet0/0/2
+ port link-type trunk
+ port trunk allow-pass vlan 104 to 106
+#
+interface GigabitEthernet0/0/3
+ port link-type trunk
+ port trunk allow-pass vlan 104 to 106
+#
+interface GigabitEthernet0/0/4
+ port link-type trunk
+ port trunk allow-pass vlan 104 to 106
+#
+interface GigabitEthernet0/0/5
+ port link-type trunk
+ port trunk allow-pass vlan 104 to 106
+#
+interface GigabitEthernet0/0/6
+ port link-type trunk
+ port trunk allow-pass vlan 104 to 106
+#
+interface GigabitEthernet0/0/7
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/8
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/9
+ port link-type access
+ port default vlan 104
+#
+interface GigabitEthernet0/0/10
+ port link-type access
+ port default vlan 105
+#
+interface GigabitEthernet0/0/11
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/12
+ port link-type access
+ port default vlan 106
+#
+interface GigabitEthernet0/0/13
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/14
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/15
+ port link-type access
+ port default vlan 104
+#
+interface GigabitEthernet0/0/16
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/17
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/18
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/19
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/20
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/21
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/22
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/23
+ port link-type access
+ port default vlan 101
+#
+interface GigabitEthernet0/0/24
+ port link-type access
+ port default vlan 106
+#
+interface GigabitEthernet0/0/25
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+#
+interface GigabitEthernet0/0/26
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+#
+interface GigabitEthernet0/0/27
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+#
+interface GigabitEthernet0/0/28
+ port link-type access
+ port default vlan 101
+#
+interface NULL0
+#
+undo icmp name timestamp-request receive
+#
+ip route-static 0.0.0.0 0.0.0.0 10.10.20.1
+#
+ssh server cipher aes256_ctr aes128_ctr
+ssh server hmac sha2_256
+ssh server key-exchange dh_group16_sha512 dh_group15_sha512 dh_group14_sha256 dh
+_group_exchange_sha256
+ssh client cipher aes256_ctr aes128_ctr
+ssh client hmac sha2_256
+ssh client key-exchange dh_group16_sha512 dh_group15_sha512 dh_group14_sha256 dh
+_group_exchange_sha256
+ssh server dh-exchange min-len 2048
+ssh server publickey rsa_sha2_512 rsa_sha2_256
+#
+user-interface con 0
+ authentication-mode password
+ set authentication password cipher $1a$j,197X>.^($'6n*S==.{7FD"r<#4yZG%!WfPM).O
+S[]*M@u.G;B$
+user-interface vty 0 4
+ authentication-mode aaa
+ user privilege level 15
+ protocol inbound telnet
+user-interface vty 16 20
+#
+dot1x-access-profile name dot1x_access_profile
+#
+mac-access-profile name mac_access_profile
+#
+ops
+#
+return
+<hj>
