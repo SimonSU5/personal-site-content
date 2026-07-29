@@ -100,7 +100,7 @@ RSTP
 		3. 次优BPDU处
 			1. 超时后，会认为自己为根桥，发送BPDU。
 			2. 对端设备收到次优BPDU，立即回应rst bpdu（STP要等待20s老化后才回复）
-	5. P/A机制（4s左右）
+	5. **P/A机制（4s左右）**
 		1. 新建链路
 		2. 初始状态下链路两端都为**D端口**，并且discarding
 		3. 比较BPDU
@@ -114,4 +114,6 @@ RSTP
 		1. STP使用up/down来判断是否拓扑变更。——任何变动都会导致TC报文和MAC地址刷新
 		2. RSTP判断标准：一个非边缘端口变为forwarding状态——如果原来就是阻塞的端口，down了不会影响MAC地址震荡。
 		3. 过程
-			1. 拓扑改变，清空down端口的
+			1. 拓扑改变，清空down端口的所有mac表，并且向非边缘的剩余端口发送TC报文。时间为2个hello time（TC while timer）
+			2. 下游收到TC报文，保留TC报文进入的端口mac以及边缘端口学到的MAC，其他都删除。
+			3. 向除了收到TC报文的端口以及边缘端口外的所有端口发送TC报文，时常为TC while timer。
