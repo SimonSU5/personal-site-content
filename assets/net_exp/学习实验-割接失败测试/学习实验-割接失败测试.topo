@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UNICODE" ?>
+<topo version="1.3.00">
+    <devices>
+        <dev id="96915A60-612C-497e-8BD5-00C1CC66CAD1" name="AR3" poe="0" model="AR2220" settings="" system_mac="00-E0-FC-4E-0A-A3" com_port="2002" bootmode="0" cx="376.000000" cy="246.000000" edit_left="403" edit_top="300">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+            </slot>
+        </dev>
+        <dev id="926C38CB-1A09-49fc-A36D-93B94BA52B45" name="AR1" poe="0" model="AR2220" settings="" system_mac="00-E0-FC-B5-4B-82" com_port="2000" bootmode="0" cx="229.000000" cy="102.000000" edit_left="256" edit_top="156">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+            </slot>
+        </dev>
+        <dev id="1CFA4FEB-28F5-4658-AA37-4D1615319C09" name="AR2" poe="0" model="AR2220" settings="" system_mac="00-E0-FC-6F-0F-5E" com_port="2001" bootmode="0" cx="519.000000" cy="102.000000" edit_left="546" edit_top="156">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+            </slot>
+        </dev>
+        <dev id="7F759EF4-8F01-45ab-AAE3-D4B4815DBE0F" name="AR4" poe="0" model="AR2220" settings="" system_mac="00-E0-FC-ED-07-4E" com_port="2003" bootmode="0" cx="525.000000" cy="248.000000" edit_left="552" edit_top="302">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="1" />
+                <interface sztype="Ethernet" interfacename="GE" count="2" />
+            </slot>
+        </dev>
+    </devices>
+    <lines>
+        <line srcDeviceID="926C38CB-1A09-49fc-A36D-93B94BA52B45" destDeviceID="96915A60-612C-497e-8BD5-00C1CC66CAD1">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="286.848694" srcBoundRect_Y="159.219131" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="372.151306" tarBoundRect_Y="242.780869" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="926C38CB-1A09-49fc-A36D-93B94BA52B45" destDeviceID="1CFA4FEB-28F5-4658-AA37-4D1615319C09">
+            <interfacePair lineName="Copper" srcIndex="1" srcBoundRectIsMoved="0" srcBoundRect_X="299.183777" srcBoundRect_Y="129.000000" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="1" tarBoundRectIsMoved="0" tarBoundRect_X="502.816223" tarBoundRect_Y="129.000000" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="7F759EF4-8F01-45ab-AAE3-D4B4815DBE0F" destDeviceID="96915A60-612C-497e-8BD5-00C1CC66CAD1">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="508.820129" srcBoundRect_Y="274.420410" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="1" tarBoundRectIsMoved="0" tarBoundRect_X="446.179871" tarBoundRect_Y="273.579590" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="7F759EF4-8F01-45ab-AAE3-D4B4815DBE0F" destDeviceID="1CFA4FEB-28F5-4658-AA37-4D1615319C09">
+            <interfacePair lineName="Copper" srcIndex="1" srcBoundRectIsMoved="0" srcBoundRect_X="550.226807" srcBoundRect_Y="231.852661" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="547.773193" tarBoundRect_Y="172.147339" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+    </lines>
+    <shapes />
+    <txttips>
+        <txttip left="644" top="141" right="950" bottom="220" content="正常情况下 1 2 3 连载一起。&#x0D;&#x0A;现在需要在2 3 之间加上一台路由器R4，&#x0D;&#x0A;但是割接失误，将R4配置直接从R3复制过来。&#x0D;&#x0A;导致的结果可以看见3 4 之间无法建立邻居，&#x0D;&#x0A;其他都可建立。请用dis ospf peer查看。" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+    </txttips>
+</topo>
