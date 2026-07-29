@@ -8,6 +8,7 @@
 
 # Syncthing 配置文件
 .stignore
+.stversions
 
 # Syncthing 冲突文件
 *.sync-conflict*
