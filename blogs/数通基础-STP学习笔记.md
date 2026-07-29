@@ -117,3 +117,7 @@ RSTP
 			1. 拓扑改变，清空down端口的所有mac表，并且向非边缘的剩余端口发送TC报文。时间为2个hello time（TC while timer）
 			2. 下游收到TC报文，保留TC报文进入的端口mac以及边缘端口学到的MAC，其他都删除。
 			3. 向除了收到TC报文的端口以及边缘端口外的所有端口发送TC报文，时常为TC while timer。
+	7. 保护机制
+		1. BPDU保护
+			1. 边缘端口开启保护，收到bpdu直接变成**error-down**
+			2. 
