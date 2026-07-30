@@ -5,7 +5,7 @@ category: 数通
 tags:
   - 数通
   - 网络维护
-cover: assets/covers/医药公司组网排查-封面.png
+cover: assets/covers/零售企业丢包MAC漂移-封面.png
 date: 2026-07-30
 published: false
 ---

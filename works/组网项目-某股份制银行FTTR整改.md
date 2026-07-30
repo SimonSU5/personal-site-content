@@ -1,7 +1,7 @@
 ---
 title: 某股份制银行FTTR整改
 description: 某股份制银行（分行）基于运营商 FTTR 全光组网的营业网点无线网络定制化安全整改项目：以华为 B866 系列光网关兼作 AC 统一纳管各网点 AP，针对"多 VLAN 配置导致 Portal 认证插件偶发挂起、用户可绕过认证直连上网"的典型隐患，通过版本升级、去除 VLAN 隐藏网关、启用 WiFi 侧管理隔离与第三方 Portal 认证、钓鱼 AP 反制、SSID 用户隔离等一揽子定制化改造，并以全量逐点复测与漏洞扫描完成闭环。
-cover: assets/covers/国企单位监控项目-封面.png
+cover: assets/covers/股份制银行FTTR整改-封面.png
 category: 数通
 demo:
 repo:

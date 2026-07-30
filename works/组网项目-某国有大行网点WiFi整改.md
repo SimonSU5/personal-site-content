@@ -1,7 +1,7 @@
 ---
 title: 某国有大行网点WiFi整改
 description: 某国有大行营业网点基于运营商 FTTO 方案的客用 WiFi 覆盖与认证整改项目。以华为 B866-S2 FTTO 主设备（集成 AC/网关）+ 分布式 AP + 专线卫士桥接构建分级无线网络，对接第三方 Portal 认证插件实现合规准入。针对"认证界面无法弹出"（IPv6 协议适配、认证插件内存超限）与"双频合一导致无法上网"两类典型故障完成根因定位与全网整改，并沉淀出设备替换、版本升级与定期重启的长效运维方案。
-cover: assets/covers/国企单位监控项目-封面.png
+cover: assets/covers/国有大行网点WiFi整改-封面.png
 category: 数通
 demo:
 repo:

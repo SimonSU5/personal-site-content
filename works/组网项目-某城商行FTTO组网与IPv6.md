@@ -1,7 +1,7 @@
 ---
 title: 某城商行FTTO组网与IPv6
 description: 某城商行基于运营商 FTTO 光纤到办公室专线的多网点办公网络改造项目：以华为 B866 系列企业网关为 FTTO 主设备、FTTR 从设备做楼层/房间级无线覆盖，构建 IPv4/IPv6 双栈承载网，通过 VLAN 10/20 桥接透传把内外网流量分别上送给"专线卫士"做 Portal 短信/微信认证，并落地 2M 全局限速、回退上网方案与西软认证插件升级排障，形成一套可复制的金融网点营业办公上网与合规审计组网模型。
-cover: assets/covers/国企单位监控项目-封面.png
+cover: assets/covers/城商行FTTO组网IPv6-封面.png
 category: 数通
 demo:
 repo:

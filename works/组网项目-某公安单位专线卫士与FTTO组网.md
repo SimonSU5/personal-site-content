@@ -1,7 +1,7 @@
 ---
 title: 某公安单位专线卫士与FTTO组网
 description: 某地市级公安单位办公专网的安全整改项目：原网中安全网关（专线卫士）以二层桥接方式串接，服务器、有线、无线终端同处一个 VLAN、网关位于 ONU 侧，导致安全设备无法溯源内网终端、无法落地准入控制，且固定公网 IP 持续遭受扫描与攻击。本项目将网关上移至专线卫士，按服务器/有线/无线划分为 DMZ、trust_PC、trust_WLAN 三套安全域，结合路由模式、DHCP 与源 NAT 实现终端级溯源、MAC 白名单免认证与 Portal 访客认证，并以 SD 卡扩展满足 180 天日志留存，上行改为 PPPoE 动态 IP 收敛暴露面；同时对一例因失陷主机告警误封 DNS 导致的断网事件做了完整复盘。
-cover: assets/covers/国企单位监控项目-封面.png
+cover: assets/covers/公安单位专线卫士FTTO组网-封面.png
 category: 数通
 demo:
 repo:
