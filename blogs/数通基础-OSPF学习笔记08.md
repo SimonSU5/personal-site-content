@@ -9,7 +9,7 @@ tags:
   - 学习笔记
 cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-21
-published: false
+published: true
 ---
 ## 路由汇总
 在ABR上的area，执行abr-summery，将多个网段合并成一个网段进行summery

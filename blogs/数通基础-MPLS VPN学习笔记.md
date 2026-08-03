@@ -9,7 +9,7 @@ tags:
   - 
 cover: assets/covers/数通学习笔记-封面.png
 date: 2026-07-24
-published: false
+published: true
 ---
 MPLS 基本概念
 

@@ -9,7 +9,7 @@ tags:
   - 学习笔记
 cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-15
-published: false
+published: true
 ---
 ## 外部路由使用场景
 

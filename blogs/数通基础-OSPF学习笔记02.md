@@ -9,7 +9,7 @@ tags:
   - 学习笔记
 cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-06
-published: false
+published: true
 ---
 ## 实验拓扑
 ![[Pasted image 20260708201848.png]]

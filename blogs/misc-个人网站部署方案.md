@@ -10,7 +10,7 @@ tags:
   - GitHub-action
 cover: assets/covers/个人网站部署方案-封面.png
 date: 2026-07-04
-published: false
+published: true
 ---
 # 阿里云 E 实例 (2 核 2G)+OSS+CDN+Nginx 部署个人网站
 

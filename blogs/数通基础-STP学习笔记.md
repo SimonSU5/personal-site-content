@@ -9,7 +9,7 @@ tags:
   - 
 cover: assets/covers/数通学习笔记-封面.png
 date: 2026-07-28
-published: false
+published: true
 ---
 1. 环路网络造成的问题
 	1. 广播风暴：指定广播，未知单播，组播帧

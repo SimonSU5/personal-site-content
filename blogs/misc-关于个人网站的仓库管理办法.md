@@ -6,7 +6,7 @@ tags:
   - git
 cover: assets/covers/关于个人网站的仓库管理办法-封面.png
 date: 2026-06-30
-published: false
+published: true
 ---
 ## 1. 固定两条长期常驻分支
 
