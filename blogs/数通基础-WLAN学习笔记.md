@@ -28,3 +28,11 @@ published: true
 		1. WiFi别名，日常WiFi名称
 5. VAP 虚拟接入点
 	1. 一个AP虚拟出多个AP
+	2. 每个虚拟出的AP就是一个VAP。
+6. ESS 扩展服务集
+	1. 多个BSS但是同一个SSID组成的服务集合区域
+7. WLAN工作流程
+	1. AP获取IP地址上线，与AC建立链接
+	2. WLAN业务下发
+	3. STA接入：STA搜索到SSID并连接上线，接入网络
+	4. WLAN业务数据转发
