@@ -18,3 +18,13 @@ published: true
 3. AC+AP连接方式
 	1. 直连式组网
 	2. 旁挂式组网
+4. BSS/SSID/BSSID
+	1. BSS
+		1. 一个AP所覆盖的范围
+		2. 在一个BSS范围内，STA可以相互通信
+	2. BSSID
+		1. WiFi名称，是MAC地址
+	3. SSID
+		1. WiFi别名，日常WiFi名称
+5. VAP 虚拟接入点
+	1. 一个AP虚拟出多个AP
