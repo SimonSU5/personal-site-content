@@ -94,3 +94,7 @@ published: false
 	1. ospf视图下，frr进入frr视图
 	2. loop-free-alternate
 	3. 接口视图下可以禁止frr 接口视图下ospf frr block：主要为了不让这个接口上的链路成为备份链路，重要业务不会被挤占
+
+### BFD-OSPF联动
+1. 缺省情况下，OSPF探测故障通过hello超时。
+2. 
