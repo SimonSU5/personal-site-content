@@ -97,4 +97,11 @@ published: false
 
 ### BFD-OSPF联动
 1. 缺省情况下，OSPF探测故障通过hello超时。
-2. 
+2. 过程
+	1. OSPF邻居FULL后，通知BFD建立会话
+	2. 链路down后，BFD直接通知OSPF peer down 毫秒级响应
+3. 配置
+	1. OSPF视图下，bfd all-interfaces enable
+	2. 接口视图下，ospf bfd enable
+
+
