@@ -88,4 +88,4 @@ published: false
 ### FRR
 
 1. LFA算法算出最短无环备份路径，50ms内切换
-2. 
+2. 不等式：备份
