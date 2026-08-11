@@ -111,4 +111,10 @@ published: false
 	2. 负载分担方式——逐包/逐流
 	3. 命令——配置最大的负载分担条数（默认8条）
 		1. ospf视图下  maximum load-balancing *number*
-2. 
+2. 缺省路由
+	1. OSPF 3类和7类缺省路由——stub和NSSA区域
+	2. import-route无法引入缺省路由，只能使用default-route-advertise
+	3. 再通告缺省路由的时候，必须检查缺省路由的优先级（比如静态路由优先级高）
+3. LSA过滤
+	1. 特定LSA过滤
+	2. 命令：ospf filter-lsa-out xxx（all，summery，ase，nssa等，都可以应用acl）
