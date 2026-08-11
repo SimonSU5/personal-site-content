@@ -118,3 +118,5 @@ published: false
 3. LSA过滤
 	1. 特定LSA过滤
 	2. 命令：ospf filter-lsa-out xxx（all，summery，ase，nssa等，都可以应用acl）
+	3. **对于已经发送的LSA，只能等待老化时间**
+		1. 
