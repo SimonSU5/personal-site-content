@@ -84,3 +84,8 @@ published: false
 		2. 初次计算SPF间隔时间为start-interval（缺省500ms）
 		3. n次计算SPF间隔时间为hold-interval（缺省1000ms） * 2 ^ (n-2) 
 		4. 当上步反复执行到最长间隔max-interval（缺省10000ms），OSPF连续三次计算SPF的间隔时间都是最长时间，之后再次返回步骤1，按照初始时间间隔计算SPF。
+
+### FRR
+
+1. LFA算法算出最短无环备份路径，50ms内切换
+2. 
