@@ -69,13 +69,18 @@ published: false
 ## 智能定时器
 1. 路由拓扑/链路快速震荡时，响应过快会导致路由反复震荡——智能定时器会减少突发时间的快速响应，避免过度占用CPU。
 2. 控制LSA的生成和接收
-	1. 同一条LSA1s内不再生成。
-	2. LSA接受时间间隔为1s。
+	1. 同一条LSA 1s内不再生成。
+	2. LSA接收时间间隔为1s。
 	3. **对于需要快速收敛的网络，可以配置间隔时间为0**
+	4. **基础配置命令——OSPF协议视图下**
+		1. lsa-originate-interval {0 | {intelligent-timer max-interval start-interval hold-interval}}
+		2. 初次更新间隔时间为start-interval（缺省500ms）
+		3. n次更新的LSA间隔时间为hold-interval（缺省1000ms） * 2 ^ (n-2) 
+		4. 当上步反复执行到最长间隔max-interval（缺省5000ms），OSPF连续三次的间隔时间都是最长时间，之后再次返回步骤1，按照初始时间间隔更新LSA。
 3. 控制路由计算
 	1. 计算最短路径（SPF和I-SPF）的时间可以由智能定时器指定间隔。
-4. 基础配置命令
-	1. lsa-originate-interval {0|{intelligent-timer max-interval start-interval hold-interval}}
-	2. 初次更新间隔时间为start-interval
-	3. n次更新的LSA间隔时间为hold-interval * 2 ^ (n-2) 
-	4. 当上步
+	2. **基础配置命令——OSPF协议视图下**
+		1. spf-schedule-interval {interval1 | {intelligent-timer max-interval start-interval hold-interval}}
+		2. 初次更新间隔时间为start-interval（缺省500ms）
+		3. n次更新的LSA间隔时间为hold-interval（缺省1000ms） * 2 ^ (n-2) 
+		4. 当上步反复执行到最长间隔max-interval（缺省5000ms），OSPF连续三次的间隔时间都是最长时间，之后再次返回步骤1，按照初始时间间隔更新LSA。
