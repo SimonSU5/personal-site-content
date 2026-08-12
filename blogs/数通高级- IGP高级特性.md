@@ -9,7 +9,7 @@ cover: assets/covers/image.jpg
 date: 2026-08-10
 published: false
 ---
-## OSPF快速收敛
+## OSPF
 
 ### SPF
 1. 根据1类和2类LSA计算最短路径。
@@ -141,6 +141,7 @@ published: false
 1. 适用于MPLS-VPN
 2. 公司网络合并，有两个area 0，并且area 0无法直接对接。
 
+### OSPF和BGP联动
 
 
 ### 实验
