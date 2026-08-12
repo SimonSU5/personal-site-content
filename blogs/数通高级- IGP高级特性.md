@@ -157,7 +157,13 @@ published: false
 	![[Pasted image 20260812151451.png]]
 	1. 在同一广播域内，R2引入了外部路由下一跳R1，R3就会先把下一跳设置为R2，由R2转到R1——次优路径
 	2. FA直接指定R1，防止次优路径
-	3. 当FA
+	3. 当FA非0 ，会直接计算到FA地址的下一跳，规避次优路径
+	4. FA取值——当满足以下条件才可以非零
+		1. ASBR链接外部路由的接口必须启用OSPF
+		2. 该接口没有启用siilence-interface
+		3. 该接口必须为broadcast/NBMA
+		4. 该接口的IP地址必须在network声明内
+		5. FA地址被置为外部LSA的下一跳地址。
 
 ### 实验
 ![[Pasted image 20260812141226.png]]
