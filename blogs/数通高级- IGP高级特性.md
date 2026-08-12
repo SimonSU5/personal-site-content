@@ -153,7 +153,7 @@ published: false
 ### Forwarding Address
 1. 5类 7类 LSA特有
 2. 目的：防止某些特殊场景下的次优路径
-3. 场景：
+3. 场景1——5类FA作用：
 	![[Pasted image 20260812151451.png]]
 	1. 在同一广播域内，R2引入了外部路由下一跳R1，R3就会先把下一跳设置为R2，由R2转到R1——次优路径
 	2. FA直接指定R1，防止次优路径
@@ -164,6 +164,16 @@ published: false
 		3. 该接口必须为broadcast/NBMA
 		4. 该接口的IP地址必须在network声明内
 		5. FA地址被置为外部LSA的下一跳地址。
+4. 场景2——7类LSA场景：
+	![[Pasted image 20260812160729.png]]
+	1. 7转5 路由器如果处于低带宽链路，如果没有FA地址，就会认为只能通过R3，流量就被引导到低带宽链路
+	2. 使用FA后，会认为此NSSA的网段必须经过R5，即会自动找R5的路由，流量就会被引导到高带宽链路。
+
+### OSPF GR——graceful restart
+
+1. 保证重启过程中还能进行数据转发，控制层面不影响数据转发。
+2. 新增type 9 opaque LSA
+3. 
 
 ### 实验
 ![[Pasted image 20260812141226.png]]
