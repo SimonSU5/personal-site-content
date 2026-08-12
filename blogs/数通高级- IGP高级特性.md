@@ -147,3 +147,8 @@ published: false
 		2. 这里需要使用route-policy来指定某条静态路由cost 100，另一条静态路由cost 200。所以一定要用route-policy来指定。
 2. 内部路由控制
 	1. 使用cost设计内部路由控制。
+
+### 总结
+import xxx filter-policy：调用acl，import 的时候放通/禁止路由
+ospf视图下 filter-policy：调用ACL，在import/export方向上放通/禁止路由
+route-policy：调用acl+if-match+apply，import的时候可以更改路由属性
