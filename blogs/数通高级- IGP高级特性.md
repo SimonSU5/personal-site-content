@@ -232,3 +232,10 @@ cost：cost是接口属性
 
 ### ISIS GR
 1. 211号TLV
+2. 包含三个置位以及三个定时器
+3. 过程
+	1. 主备倒换和路由器重启会导致GR触发
+	2. restarter发送RR请求
+	3. helper应答，RA
+	4. helper发送CSNP和LSP
+	5. 
