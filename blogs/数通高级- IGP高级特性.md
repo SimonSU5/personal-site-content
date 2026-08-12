@@ -142,4 +142,8 @@ published: false
 1. 要控制外部路由出口只走一边：
 	1. type 2引入，忽略外部的cost
 	2. 指定cost，让边界1的cost比边界2引入的cost小。边界1down后自动切到边界2。
-2. 
+	3. **注意import时的cost 和 policy的cost 区别！**
+		1. import时候使用的type 2 cost 100会将所有import的类型都改成cost 100。
+		2. 这里需要使用route-policy来指定某条静态路由cost 100，另一条静态路由cost 200。所以一定要用route-policy来指定。
+2. 内部路由控制
+	1. 使用cost设计内部路由控制。
