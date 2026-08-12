@@ -137,6 +137,12 @@ published: false
 				3. 接收非缺省外部路由并能回复LSA
 				4. 准备下次进入overflow状态
 
+### OSPF多进程
+1. 适用于MPLS-VPN
+2. 公司网络合并，有两个area 0，并且area 0无法直接对接。
+
+
+
 ### 实验
 ![[Pasted image 20260812141226.png]]
 1. 要控制外部路由出口只走一边：
@@ -152,3 +158,4 @@ published: false
 import xxx filter-policy：调用acl，import 的时候放通/禁止路由
 ospf视图下 filter-policy：调用ACL，在import/export方向上放通/禁止路由
 route-policy：调用acl+if-match+apply，import的时候可以更改路由属性
+cost：cost是接口属性
