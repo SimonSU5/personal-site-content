@@ -142,7 +142,12 @@ published: false
 2. 公司网络合并，有两个area 0，并且area 0无法直接对接。
 
 ### OSPF和BGP联动
-
+情景：
+![[Pasted image 20260812150626.png]]
+1. 步骤
+	1. 当R2重启，IBGP不会down，流量瞬间切换到R1-R3-R4。
+	2. R2启动后，OSPF建立但是IBGP还未收敛，此时R1会选择R2转发，但是R2没有BGP路由表，导致丢包。
+	3. 在OSPF收敛但是BGP没有收敛的时候，R2要配置stub-router on-startup [*interval* ] 或者使用 wait-for-bgp。在重启的时候会通告cost为65535来避免成为数据转发路由器
 
 ### 实验
 ![[Pasted image 20260812141226.png]]
