@@ -149,6 +149,16 @@ published: false
 	2. R2启动后，OSPF建立但是IBGP还未收敛，此时R1会选择R2转发，但是R2没有BGP路由表，导致丢包。
 	3. 在OSPF收敛但是BGP没有收敛的时候，R2要配置stub-router on-startup [*interval* ] 或者使用 wait-for-bgp。在重启的时候会通告cost为65535来避免成为数据转发路由器
 
+
+### Forwarding Address
+1. 5类 7类 LSA特有
+2. 目的：防止某些特殊场景下的次优路径
+3. 场景：
+	![[Pasted image 20260812151451.png]]
+	1. 在同一广播域内，R2引入了外部路由下一跳R1，R3就会先把下一跳设置为R2，由R2转到R1——次优路径
+	2. FA直接指定R1，防止次优路径
+	3. 当FA
+
 ### 实验
 ![[Pasted image 20260812141226.png]]
 1. 要控制外部路由出口只走一边：
