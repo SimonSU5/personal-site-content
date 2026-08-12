@@ -121,3 +121,18 @@ published: false
 	3. **对于已经发送的LSA，只能等待老化时间**——解决办法只能是重建OSPF
 4. OSPF database overflow
 	1. 设置路由器非缺省外部路由数量上限
+	2. 过程
+		1. 进入overflow状态
+			1. 路由器删除**所有**自己产生的非缺省外部路由
+			2. 启动overflow定时器（默认5s）
+		2. 处于overflow状态
+			1. 不产生非缺省外部路由
+			2. 丢弃所有非缺省外部路由LSA
+			3. 定时器超时，自动检查非缺省外部路由数量是否还超过上限
+				1. N：退出overflow状态
+				2. Y：重启overflow计时器
+			4. 退出overflow状态
+				1. 删除overflow定时器
+				2. 产生非缺省外部路由
+				3. 接收非缺省外部路由并能回复LSA
+				4. 准备下次进入overflow状态
