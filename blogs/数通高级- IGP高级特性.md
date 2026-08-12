@@ -119,3 +119,5 @@ published: false
 	1. 特定LSA过滤
 	2. 命令：ospf filter-lsa-out xxx（all，summery，ase，nssa等，都可以应用acl）
 	3. **对于已经发送的LSA，只能等待老化时间**——解决办法只能是重建OSPF
+4. OSPF database overflow
+	1. 设置路由器非缺省外部路由数量上限
