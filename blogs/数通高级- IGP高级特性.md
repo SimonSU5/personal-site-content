@@ -5,9 +5,9 @@ category: 数通
 tags:
   - 学习笔记
   - 
-cover: assets/covers/image.jpg
+cover: assets/covers/数通学习笔记-封面.png
 date: 2026-08-10
-published: false
+published: true
 ---
 ## OSPF
 
