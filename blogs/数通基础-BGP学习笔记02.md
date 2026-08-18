@@ -31,6 +31,8 @@ published: true
 		2. peer 地址 as-number 对端as
 		3. 指定环回口：peer 环回口地址 connect-interface LoopBack x
 	3. 使用环回口更好，因为网络冗余的情况下，端口关闭还是可以通过冗余路由建立邻居。
+	4. 路由next hop走本地地址
+		1. peer x.x.x.x next-hop-local
 
 
 ---

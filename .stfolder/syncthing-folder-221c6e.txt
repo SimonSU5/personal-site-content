@@ -1,5 +1,0 @@
-# This directory is a Syncthing folder marker.
-# Do not delete.
-
-folderID: noxs7-usu5t
-created: 2026-07-30T19:49:52+08:00
