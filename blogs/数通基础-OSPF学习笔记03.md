@@ -11,6 +11,8 @@ cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-09
 published: true
 ---
+> 🔗 配套 eNSP 实验：[学习实验-ospf实例02-dr选举](https://github.com/SimonSU5/network-lab/tree/main/学习实验-ospf实例02-dr选举)
+
 ## OSPF报文格式和类型
 
 OSPF报文工作在IP层，协议号89

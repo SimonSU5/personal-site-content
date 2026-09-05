@@ -11,6 +11,8 @@ cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-21
 published: true
 ---
+> 🔗 配套 eNSP 实验：[学习实验-ipv6实验](https://github.com/SimonSU5/network-lab/tree/main/学习实验-ipv6实验)
+
 | LSA 类型 | LSA 名称                                 | 始发路由器（Origin Router）                 | 是否携带 IPv6 前缀                  | 泛洪范围                                 | OSPFv2 对等 LSA               | 类比                    |
 | ------ | -------------------------------------- | ------------------------------------ | ----------------------------- | ------------------------------------ | --------------------------- | --------------------- |
 | Type 1 | Router-LSA<br><br>路由器 LSA              | 域内每一台运行 OSPFv3 的路由器（本机生成）            | ❌ **不带前缀，只描述拓扑、链路、Metric、邻居** | 整个区域（Area scope）                     | Type1 Router-LSA            | 1+9可以泛洪所有的地址段         |

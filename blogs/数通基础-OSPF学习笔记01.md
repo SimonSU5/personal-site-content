@@ -11,6 +11,8 @@ cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-06
 published: true
 ---
+> 🔗 配套 eNSP 实验：[学习实验-ospf实例01](https://github.com/SimonSU5/network-lab/tree/main/学习实验-ospf实例01) · [学习实验-ospf router lsa泛洪抓包](https://github.com/SimonSU5/network-lab/tree/main/学习实验-ospf%20router%20lsa泛洪抓包)
+
 ## 链路状态路由协议——LSA泛洪
 
 1. OSPF通过链路状态（拓扑信息+路由信息）通告路由情况。

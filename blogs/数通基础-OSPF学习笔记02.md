@@ -11,6 +11,8 @@ cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-06
 published: true
 ---
+> 🔗 配套 eNSP 实验：[学习实验-ospf实例01](https://github.com/SimonSU5/network-lab/tree/main/学习实验-ospf实例01)
+
 ## 实验拓扑
 ![[Pasted image 20260708201848.png]]
 ## OSPF命令

@@ -11,6 +11,8 @@ cover: assets/covers/数通学习笔记-封面.png
 date: 2026-07-24
 published: true
 ---
+> 🔗 配套 eNSP 实验：[学习实验-MPLS-VPN intranet](https://github.com/SimonSU5/network-lab/tree/main/学习实验-MPLS-VPN%20intranet) · [学习实验-MPLS VPN hub-spoke IGP-IGP方式组网](https://github.com/SimonSU5/network-lab/tree/main/学习实验-MPLS%20VPN%20hub-spoke%20IGP-IGP方式组网)
+
 MPLS 基本概念
 
 1. MPLS位于2层和3层之间
@@ -211,7 +213,9 @@ MPLS-VPN
 	5. 跨域组网
 		1. PE-P-PE之间跨AS，需要使用跨域组网
 		2. 有三种配置方式
-			1. 
+			1. option A
+			2. option B
+			3. option C
 
 
 

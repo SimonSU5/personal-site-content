@@ -11,6 +11,8 @@ cover: assets/covers/数通学习笔记-封面.png
 date: 2026-07-21
 published: true
 ---
+> 🔗 配套 eNSP 实验：[学习实验-bgp01](https://github.com/SimonSU5/network-lab/tree/main/学习实验-bgp01)
+
 ## BGP简介
 
 在AS之间专门使用BGP(Border GatewayProtocol，边界网关协议)协议进行路由传递，相较于传统的IGP协议:

@@ -11,6 +11,8 @@ cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-21
 published: true
 ---
+> 🔗 配套 eNSP 实验：[学习实验-OSPF汇总](https://github.com/SimonSU5/network-lab/tree/main/学习实验-OSPF汇总)
+
 ## 路由汇总
 在ABR上的area，执行abr-summery，将多个网段合并成一个网段进行summery
 在ASBR上，执行asbr-summary

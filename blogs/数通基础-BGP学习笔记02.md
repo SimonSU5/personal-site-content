@@ -11,6 +11,8 @@ cover: assets/covers/数通学习笔记-封面.png
 date: 2026-07-21
 published: true
 ---
+> 🔗 配套 eNSP 实验：[学习实验-bgp02](https://github.com/SimonSU5/network-lab/tree/main/学习实验-bgp02) · [学习实验-bgp路由优选实验](https://github.com/SimonSU5/network-lab/tree/main/学习实验-bgp路由优选实验)
+
 1. EBGP配置
 	1. 使用物理接口
 		1. 默认使用物理接口

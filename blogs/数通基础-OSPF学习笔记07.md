@@ -11,6 +11,8 @@ cover: assets/covers/OSPF学习笔记-封面.png
 date: 2026-07-15
 published: true
 ---
+> 🔗 配套 eNSP 实验：[学习实验-NSSA 4类LSA](https://github.com/SimonSU5/network-lab/tree/main/学习实验-NSSA%204类LSA) · [学习实验-NSSA translator和summery学习](https://github.com/SimonSU5/network-lab/tree/main/学习实验-NSSA%20translator和summery学习) · [学习实验-NSSA路由汇总](https://github.com/SimonSU5/network-lab/tree/main/学习实验-NSSA路由汇总)
+
 在网络规模扩大的情况下，LSA和LSDB规模变大。因此需要在不影响IP可达性的情况下，减少LSA的数量。
 
 1. 区域分类

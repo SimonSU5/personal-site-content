@@ -11,6 +11,8 @@ cover: assets/covers/数通学习笔记-封面.png
 date: 2026-07-21
 published: true
 ---
+> 🔗 配套 eNSP 实验：[学习实验-ISIS路由](https://github.com/SimonSU5/network-lab/tree/main/学习实验-ISIS路由) · [学习实验-isis默认路由发布](https://github.com/SimonSU5/network-lab/tree/main/学习实验-isis默认路由发布)
+
 1. 数据链路层
 2. PDU通用报文头（相同）+PDU专用报文头+TLV（type，length，value）+payload
 3. 类型：

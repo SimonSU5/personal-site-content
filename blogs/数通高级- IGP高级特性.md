@@ -9,6 +9,8 @@ cover: assets/covers/数通学习笔记-封面.png
 date: 2026-08-10
 published: true
 ---
+> 🔗 配套 eNSP 实验：[学习实验-OSPF BFD和FRR](https://github.com/SimonSU5/network-lab/tree/main/学习实验-OSPF%20BFD和FRR)
+
 ## OSPF
 
 ### SPF

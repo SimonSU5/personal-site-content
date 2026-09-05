@@ -9,6 +9,8 @@ cover: assets/covers/image.jpg
 date: 2026-08-12
 published: false
 ---
+> 🔗 配套 eNSP 实验：[学习实验-bgp路由优选实验](https://github.com/SimonSU5/network-lab/tree/main/学习实验-bgp路由优选实验)
+
 ### 路由控制
 
 1. 路由匹配工具
