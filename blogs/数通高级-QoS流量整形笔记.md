@@ -141,3 +141,16 @@ flowchart LR
 	2. rule 5 permit ip dscp ? -> 输出dscp值和名称映射
 	3. dis qos map-table
 
+# 复杂流分类
+
+1. 过程
+	1. 创建复杂流——traffic-classifier
+	2. 配置流行为——traffic-behavior
+	3. 配置流量策略——traffic-policy
+	4. 应用流量策略——int xxx\n traffic-policy xxx inbound/outbound
+2. DS域
+	1. 出口DS边界设备进行复杂流分类，打标
+	2. DS域内根据标进行简单流分类
+
+# 实验
+
