@@ -55,6 +55,3 @@ flowchart LR
     style OUT fill:#F0FDF4,stroke:#86EFAC
     style DPC fill:#FEFCE8,stroke:#D9D9D9
 ```
-
-## 外部优先级 - vlan报文
-
