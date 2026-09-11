@@ -55,3 +55,10 @@ flowchart LR
     style OUT fill:#F0FDF4,stroke:#86EFAC
     style DPC fill:#FEFCE8,stroke:#D9D9D9
 ```
+
+| 报文类型 | 优先级字段 | 位数 | 取值范围 | 字段位置 |
+| --- | --- | --- | --- | --- |
+| 二层 VLAN 报文（802.1Q） | 802.1p（CoS） | 3 bit | 0~7 | VLAN Tag 中的 TCI 字段（16 bit = PCP 3 bit + DEI 1 bit + VID 12 bit）的最高 3 bit，位于 TPID（0x8100）之后、紧跟源 MAC 地址 |
+| 三层 IPv4 报文 | IP Precedence | 3 bit | 0~7 | IP 头部 ToS 字段（8 bit）的最高 3 bit |
+| 三层 IPv4 报文 | DSCP | 6 bit | 0~63 | IP 头部 ToS 字段（8 bit）的高 6 bit，剩余低 2 bit 为 ECN |
+| MPLS 报文 | EXP（TC，Traffic Class） | 3 bit | 0~7 | MPLS 标签（32 bit = Label 20 bit + EXP 3 bit + S 1 bit + TTL 8 bit）中，位于 Label 之后、S 位（栈底标志）之前 |
