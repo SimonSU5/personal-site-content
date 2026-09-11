@@ -62,3 +62,67 @@ flowchart LR
 | 三层 IPv4 报文 | IP Precedence | 3 bit | 0~7 | IP 头部 ToS 字段（8 bit）的最高 3 bit |
 | 三层 IPv4 报文 | DSCP | 6 bit | 0~63 | IP 头部 ToS 字段（8 bit）的高 6 bit，剩余低 2 bit 为 ECN |
 | MPLS 报文 | EXP（TC，Traffic Class） | 3 bit | 0~7 | MPLS 标签（32 bit = Label 20 bit + EXP 3 bit + S 1 bit + TTL 8 bit）中，位于 Label 之后、S 位（栈底标志）之前 |
+
+```mermaid
+flowchart LR
+    subgraph IN["📥 上行方向（入方向）"]
+        direction TB
+        E1["802.1p 优先级<br/>（VLAN 报文）"]:::ext
+        E2["IP Precedence / DSCP<br/>（IP 报文）"]:::ext
+        E3["MPLS EXP 优先级<br/>（MPLS 报文）"]:::ext
+        MT1["优先级映射表"]:::map
+        E1 -->|①| MT1
+        E2 -->|②| MT1
+        E3 -->|③| MT1
+    end
+
+    COS["内部优先级（COS）"]:::int
+    DP["丢弃优先级<br/>（绿 / 黄 / 红）"]:::dp
+
+    subgraph OUT["📤 下行方向（出方向）"]
+        direction TB
+        MT2["优先级映射表"]:::map
+        R["802.1p / DSCP / MPLS EXP<br/>重标记写回报文"]:::ext
+        MT2 --> R
+    end
+
+    MT1 --> COS
+    MT1 --> DP
+    COS -->|④| MT2
+
+    classDef ext fill:#DBEAFE,stroke:#2563EB,stroke-width:1.5px,color:#1E3A8A
+    classDef map fill:#EDE9FE,stroke:#7C3AED,stroke-width:1.5px,color:#4C1D95
+    classDef int fill:#FFEDD5,stroke:#EA580C,stroke-width:1.5px,color:#7C2D12
+    classDef dp fill:#DCFCE7,stroke:#16A34A,stroke-width:1.5px,color:#14532D
+
+    style IN fill:#F0F7FF,stroke:#93C5FD
+    style OUT fill:#F0FDF4,stroke:#86EFAC
+```
+
+**四种优先级映射关系**
+
+| 序号 | 映射关系 | 方向 | 缺省映射说明 |
+| --- | --- | --- | --- |
+| ① | 802.1p → 内部优先级 + 丢弃优先级 | 上行（入方向） | 等值映射，如 802.1p=5 → COS=5（队列 5），丢弃优先级=绿 |
+| ② | IP Precedence / DSCP → 内部优先级 + 丢弃优先级 | 上行（入方向） | IP Precedence 等值映射；DSCP 每 8 个值一段：0~7→BE、8~15→AF1、16~23→AF2、24~31→AF3、32~39→AF4、40~47→EF、48~55→CS6、56~63→CS7，丢弃优先级=绿 |
+| ③ | MPLS EXP → 内部优先级 + 丢弃优先级 | 上行（入方向） | 等值映射，如 EXP=5 → COS=5，丢弃优先级=绿 |
+| ④ | 内部优先级 → 外部优先级（重标记） | 下行（出方向） | COS → 802.1p / EXP 等值映射；COS → DSCP 按 PHB 缺省值：BE→0、AF1→10、AF2→18、AF3→26、AF4→34、EF→46、CS6→48、CS7→56 |
+
+**缺省优先级映射对照表**
+
+| 内部优先级（队列） | 服务等级 | ① 802.1p → 内部 | ② DSCP → 内部 | ③ EXP → 内部 | ④ 内部 → 802.1p | ④ 内部 → DSCP | ④ 内部 → EXP |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | BE | 0 | 0~7 | 0 | 0 | 0 | 0 |
+| 1 | AF1 | 1 | 8~15 | 1 | 1 | 10（黄 12 / 红 14） | 1 |
+| 2 | AF2 | 2 | 16~23 | 2 | 2 | 18（黄 20 / 红 22） | 2 |
+| 3 | AF3 | 3 | 24~31 | 3 | 3 | 26（黄 28 / 红 30） | 3 |
+| 4 | AF4 | 4 | 32~39 | 4 | 4 | 34（黄 36 / 红 38） | 4 |
+| 5 | EF | 5 | 40~47 | 5 | 5 | 46 | 5 |
+| 6 | CS6 | 6 | 48~55 | 6 | 6 | 48 | 6 |
+| 7 | CS7 | 7 | 56~63 | 7 | 7 | 56 | 7 |
+
+*①②③ 列为「该外部优先级值 → 左侧内部优先级」，④ 列为「左侧内部优先级 → 该外部优先级值」；IP Precedence 与 802.1p / EXP 一样按等值映射；缺省情况下入方向丢弃优先级均为绿，AF 类下行重标记 DSCP 会随丢弃优先级（颜色）变化。*
+
+## 差分服务模型
+
+通过报文的QoS信息打标（着色）告诉设备应该要用什么整流级别。
