@@ -181,4 +181,19 @@ flowchart LR
 		1. int g x/x/x
 		2. qos gts cir 整形最大速率 cbs 令牌桶大小
 	3. 队列gts命令
-		1. 
+		1. 创建队列模板，配置队列整形
+			1. 前面打的dscp标签可以根据dscp-lp表映射到不同的队列。在DS域出接口中生效。
+			2. 配置设计思路：创建qos queue-profile，在接口中引用队列模板
+			3. 命令
+				1. int g x/x/x
+				2. qos queue-profile name
+				3. queue 开始index to 最后index gts cir xxx
+			4. 基于mqc的流量整形
+				1. classifier
+				2. behavior
+					1. gts cir（绝对流量） | pct（接口流量百分比）
+3. 拥塞避免
+	1. 监控资源情况，当拥塞加剧的时候主动丢弃部分报文，防止拥塞加剧导致拥塞。
+	2. 技术类型
+		1. 传统方式：尾丢弃
+		2. 
