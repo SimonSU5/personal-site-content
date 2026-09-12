@@ -171,4 +171,6 @@ flowchart LR
 	6. 双桶（P桶C桶）双速三色标标记法：P桶外丢弃，如果大于C桶小于P桶，直接P桶全量扣减转发，如果小于C桶，则直接扣减C桶
 4. car命令
 	1. 基于接口的监管
+		1. int g x/x/x
+		2. qos car cir xx cbs xx pir xx pbs xx green pass yellow pass red discard 
 	2. 基于类的监管
