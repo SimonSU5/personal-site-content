@@ -22,3 +22,11 @@ published: true
 	2. MP_REACH_NLRI：rd+路由+下一跳
 	3. MP_UNREACH_NLRI：撤销rd+路由+下一跳
 
+# MPLS TE 流量工程
+
+1. 概念： 流量和路径调优
+2. 主要作用
+	1. 路径规划
+	2. 流量调优
+	3. 故障保护
+	4. 
