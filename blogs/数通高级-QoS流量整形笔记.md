@@ -208,3 +208,9 @@ flowchart LR
 		4. WRED命令
 			1. drop-profile [drop-profile-name]
 			2. wred[dscp|ip-precedence] 
+			3. dscp [dscp-value] low-limit [low-limit-percentage] high-limit [high-limit-percentage] discard-percentage [discard-percentage] //配置基于DSCP优先级的WRED参数
+			4. ip-precedence [ip-precedence-value] low-limit [low-limit-percentage]high-limit [high-limit-percentage] discard-percentage [discard-percentage]//(可选)配置基于IP优先级的WRED参数
+			5. qos queue-profile [queue-profile-name] //进入队列模板视图queue [queue-index]drop-profile [drop-profile-name]//在队列模板中为指定队列绑定去弃模板
+			6. interface [interface-type interface-num] //进入接口视图
+			7. qos queue-profile [queue-profile-name]//在接口下应用队列模板
+		5. MQC命令实现WRED
