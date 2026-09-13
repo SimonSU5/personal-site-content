@@ -185,9 +185,8 @@ flowchart LR
 			1. 前面打的dscp标签可以根据dscp-lp表映射到不同的队列。在DS域出接口中生效。
 			2. 配置设计思路：创建qos queue-profile，在接口中引用队列模板
 			3. 命令
-				1. int g x/x/x
-				2. qos queue-profile name
-				3. queue 开始index to 最后index gts cir xxx
+				1. qos queue-profile name
+				2. queue 开始index to 最后index gts cir xxx
 			4. 基于mqc的流量整形
 				1. classifier
 				2. behavior
@@ -195,8 +194,17 @@ flowchart LR
 3. 拥塞避免
 	1. 监控资源情况，当拥塞加剧的时候主动丢弃部分报文，防止拥塞加剧导致拥塞。
 	2. 技术类型
-		1. 传统方式：尾丢弃
+		1. 策略1：传统方式，尾丢弃
 			1. 缺陷1：TCP全局同步问题，在拥塞时，滑动窗口会同步缩小，之后再慢慢扩大，反复震荡。再震荡的过程中导致带宽利用率不满
 			2. 缺陷2：无差别丢弃，在拥塞时不识别关键或者非关键帧
-		2. 策略：早期随机检测（RED）
+		2. 策略2：早期随机检测（RED）
 			1. 随机丢弃报文，低门限内不丢弃，低门限到高门限之间线性概率丢弃，高门限以上尾丢弃
+			2. 缺陷：无差别丢弃，在拥塞时不识别关键或者非关键帧
+		3. 策略3：加权随机先期检测（WRED）
+			1. 不同优先级的报文设置不同的丢弃概率策略，实现不同流量区分丢弃
+			![[Pasted image 20260913092518.png]]
+			2. 避免全局丢弃，不同的流量滑动窗口不一样。
+			3. 基于权重，实现了不同流量的区分丢弃
+		4. WRED命令
+			1. drop-profile [drop-profile-name]
+			2. wred[dscp|ip-precedence] 
