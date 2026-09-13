@@ -156,11 +156,19 @@ flowchart LR
 
 ![[8038dc4de214b80bd77ca76b89856f97.png]]
 
-在AR2做MQC策略，分别为不同的流量打上标签，并观察dscp-ext映射。
+在AR2做MQC策略，分别为不同的流量打上标签，并观察dscp-exp映射。
 没有MQC的AR3，差分服务域内为0，无标签：
 ![[f2177ad4a6278f920b2c39bc84f26335.png]]
 
-打上MQC后的AR3，访问后
+打上MQC后的AR3，访问后看到打上EF标签
+![[f289ecfa3b7b46bb0e096520e587765c.png]]
+
+打上MQC的AR4，访问后看到打上AF11标签
+![[deaccca6a576e625822805f1dd08e8f1.png]]
+
+打上MQC的AR5，看到IP和mpls之间的dscp与exp标签转换
+![[a6f0dad1d9161fb48b20f991ed28c376.png]]
+![[b54e1f6fd749787a171fa5f51f59834d.png]]
 
 
 # 流量监管和流量整形

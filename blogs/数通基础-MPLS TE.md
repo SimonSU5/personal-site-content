@@ -21,4 +21,4 @@ published: true
 	1. path attributes：扩展community RT
 	2. MP_REACH_NLRI：rd+路由+下一跳
 	3. MP_UNREACH_NLRI：撤销rd+路由+下一跳
-4. 
+
